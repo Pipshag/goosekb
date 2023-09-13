@@ -1,0 +1,745 @@
+matrix_pinkie_bottom:
+    x: 179.8574898
+    'y': -165.2014932
+    r: 6.5
+    meta:
+        stagger: -9.5
+        spread: 19
+        splay: 0
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: pinkie_bottom
+        name: matrix_pinkie_bottom
+        tags:
+            - key
+        zone: &ref_1
+            key:
+                tags:
+                    - key
+            rows:
+                bottom:
+                    row_net: null
+                home:
+                    row_net: null
+                top:
+                    row_net: null
+            columns:
+                pinkie: &ref_0
+                    key:
+                        stagger: '-0.5ky'
+                    rows: {}
+                    name: pinkie
+                ring: &ref_2
+                    key:
+                        splay: -4
+                        stagger: 7
+                        spread: kx
+                    rows: {}
+                    name: ring
+                middle: &ref_3
+                    key:
+                        splay: -2
+                        stagger: 5
+                        spread: kx+0.75
+                    rows: {}
+                    name: middle
+                index: &ref_4
+                    key:
+                        stagger: -3
+                        splay: -2
+                        spread: kx+1
+                    rows: {}
+                    name: index
+                inner: &ref_5
+                    key:
+                        stagger: -5
+                        splay: -1
+                        spread: kx+0.6
+                    rows: {}
+                    name: inner
+            name: matrix
+        col: *ref_0
+        row: bottom
+        bind:
+            - 10
+            - 0
+            - 0
+            - 0
+matrix_pinkie_home:
+    x: 177.7066288
+    'y': -146.3236279
+    r: 6.5
+    meta:
+        stagger: -9.5
+        spread: 19
+        splay: 0
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: pinkie_home
+        name: matrix_pinkie_home
+        tags:
+            - key
+        zone: *ref_1
+        col: *ref_0
+        row: home
+        bind:
+            - 10
+            - 10
+            - 10
+            - 0
+matrix_pinkie_top:
+    x: 175.5557677
+    'y': -127.4457627
+    r: 6.5
+    meta:
+        stagger: -9.5
+        spread: 19
+        splay: 0
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: pinkie_top
+        name: matrix_pinkie_top
+        tags:
+            - key
+        zone: *ref_1
+        col: *ref_0
+        row: top
+        bind:
+            - 0
+            - 10
+            - 10
+            - 0
+matrix_ring_bottom:
+    x: 197.9429326
+    'y': -156.0956291
+    r: 2.5
+    meta:
+        stagger: 7
+        spread: 19
+        splay: -4
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: ring_bottom
+        name: matrix_ring_bottom
+        tags:
+            - key
+        zone: *ref_1
+        col: *ref_2
+        row: bottom
+        bind:
+            - 10
+            - 0
+            - 0
+            - 10
+matrix_ring_home:
+    x: 197.1141642
+    'y': -137.1137129
+    r: 2.5
+    meta:
+        stagger: 7
+        spread: 19
+        splay: -4
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: ring_home
+        name: matrix_ring_home
+        tags:
+            - key
+        zone: *ref_1
+        col: *ref_2
+        row: home
+        bind:
+            - 10
+            - 10
+            - 10
+            - 10
+matrix_ring_top:
+    x: 196.2853959
+    'y': -118.1317966
+    r: 2.5
+    meta:
+        stagger: 7
+        spread: 19
+        splay: -4
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: ring_top
+        name: matrix_ring_top
+        tags:
+            - key
+        zone: *ref_1
+        col: *ref_2
+        row: top
+        bind:
+            - 0
+            - 10
+            - 10
+            - 0
+matrix_middle_bottom:
+    x: 217.4560381
+    'y': -150.2389051
+    r: 0.5
+    meta:
+        stagger: 5
+        spread: 19.75
+        splay: -2
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: middle_bottom
+        name: matrix_middle_bottom
+        tags:
+            - key
+        zone: *ref_1
+        col: *ref_3
+        row: bottom
+        bind:
+            - 10
+            - 10
+            - 0
+            - 10
+matrix_middle_home:
+    x: 217.2902339
+    'y': -131.2396286
+    r: 0.5
+    meta:
+        stagger: 5
+        spread: 19.75
+        splay: -2
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: middle_home
+        name: matrix_middle_home
+        tags:
+            - key
+        zone: *ref_1
+        col: *ref_3
+        row: home
+        bind:
+            - 10
+            - 10
+            - 10
+            - 10
+matrix_middle_top:
+    x: 217.1244297
+    'y': -112.240352
+    r: 0.5
+    meta:
+        stagger: 5
+        spread: 19.75
+        splay: -2
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: middle_top
+        name: matrix_middle_top
+        tags:
+            - key
+        zone: *ref_1
+        col: *ref_3
+        row: top
+        bind:
+            - 0
+            - 0
+            - 10
+            - 0
+matrix_index_bottom:
+    x: 237.481456
+    'y': -153.0642601
+    r: -1.5
+    meta:
+        stagger: -3
+        spread: 20
+        splay: -2
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: index_bottom
+        name: matrix_index_bottom
+        tags:
+            - key
+        zone: *ref_1
+        col: *ref_4
+        row: bottom
+        bind:
+            - 10
+            - 10
+            - 0
+            - 0
+matrix_index_home:
+    x: 237.978818
+    'y': -134.070771
+    r: -1.5
+    meta:
+        stagger: -3
+        spread: 20
+        splay: -2
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: index_home
+        name: matrix_index_home
+        tags:
+            - key
+        zone: *ref_1
+        col: *ref_4
+        row: home
+        bind:
+            - 10
+            - 10
+            - 10
+            - 10
+matrix_index_top:
+    x: 238.47618
+    'y': -115.0772818
+    r: -1.5
+    meta:
+        stagger: -3
+        spread: 20
+        splay: -2
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: index_top
+        name: matrix_index_top
+        tags:
+            - key
+        zone: *ref_1
+        col: *ref_4
+        row: top
+        bind:
+            - 0
+            - 0
+            - 10
+            - 10
+matrix_inner_bottom:
+    x: 256.9438549
+    'y': -158.575615
+    r: -2.5
+    meta:
+        stagger: -5
+        spread: 19.6
+        splay: -1
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: inner_bottom
+        name: matrix_inner_bottom
+        tags:
+            - key
+        zone: *ref_1
+        col: *ref_5
+        row: bottom
+        bind:
+            - 10
+            - 0
+            - 0
+            - 0
+matrix_inner_home:
+    x: 257.7726232
+    'y': -139.5936988
+    r: -2.5
+    meta:
+        stagger: -5
+        spread: 19.6
+        splay: -1
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: inner_home
+        name: matrix_inner_home
+        tags:
+            - key
+        zone: *ref_1
+        col: *ref_5
+        row: home
+        bind:
+            - 10
+            - 0
+            - 10
+            - 10
+matrix_inner_top:
+    x: 258.6013916
+    'y': -120.6117825
+    r: -2.5
+    meta:
+        stagger: -5
+        spread: 19.6
+        splay: -1
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: inner_top
+        name: matrix_inner_top
+        tags:
+            - key
+        zone: *ref_1
+        col: *ref_5
+        row: top
+        bind:
+            - 0
+            - 0
+            - 10
+            - 10
+thumbs_middle_thumbs:
+    x: 217.6222786
+    'y': -169.2881797
+    r: 0.5
+    meta:
+        stagger: 0
+        spread: 19
+        splay: 0
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: middle_thumbs
+        name: thumbs_middle_thumbs
+        tags:
+            - key
+        zone: &ref_6
+            key:
+                tags:
+                    - key
+            rows:
+                thumbs:
+                    row_net: null
+            columns:
+                middle: null
+                inner: &ref_7
+                    key:
+                        splay: -2
+                        stagger: -3
+                    rows: {}
+                    name: inner
+                outer: &ref_8
+                    key:
+                        splay: -7
+                        shift:
+                            - 1
+                            - -6
+                    rows: {}
+                    name: outer
+                reach: &ref_9
+                    key:
+                        splay: -3
+                        stagger: -8
+                        shift:
+                            - 1.5
+                            - 1.5
+                    rows: {}
+                    name: reach
+            name: thumbs
+        col:
+            rows: {}
+            key: {}
+            name: middle
+        row: thumbs
+        bind:
+            - 0
+            - 0
+            - 0
+            - 0
+thumbs_inner_thumbs:
+    x: 236.6477347
+    'y': -172.1222613
+    r: -1.5
+    meta:
+        stagger: -3
+        spread: 19
+        splay: -2
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 0
+            - 0
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: inner_thumbs
+        name: thumbs_inner_thumbs
+        tags:
+            - key
+        zone: *ref_6
+        col: *ref_7
+        row: thumbs
+        bind:
+            - 0
+            - 0
+            - 0
+            - 0
+thumbs_outer_thumbs:
+    x: 255.7433833
+    'y': -178.7015279
+    r: -8.5
+    meta:
+        stagger: 0
+        spread: 19
+        splay: -7
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 1
+            - -6
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: outer_thumbs
+        name: thumbs_outer_thumbs
+        tags:
+            - key
+        zone: *ref_6
+        col: *ref_8
+        row: thumbs
+        bind:
+            - 0
+            - 0
+            - 0
+            - 0
+thumbs_reach_thumbs:
+    x: 275.018989
+    'y': -182.1692938
+    r: -11.5
+    meta:
+        stagger: -8
+        spread: 19
+        splay: -3
+        origin:
+            - 0
+            - 0
+        orient: 0
+        shift:
+            - 1.5
+            - 1.5
+        rotate: 0
+        adjust: {}
+        width: 18
+        height: 18
+        padding: 19
+        autobind: 10
+        skip: false
+        asym: both
+        colrow: reach_thumbs
+        name: thumbs_reach_thumbs
+        tags:
+            - key
+        zone: *ref_6
+        col: *ref_9
+        row: thumbs
+        bind:
+            - 0
+            - 0
+            - 0
+            - 0
