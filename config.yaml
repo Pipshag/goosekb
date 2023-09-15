@@ -8,18 +8,9 @@ units:
   kcoh: 14 # key cutout hole height (cherry: 14, choc: 13.8)
   keycw: 18 # keycap width (cherry: 18, choc: 17.5)
   keych: 18 # keycap height (cherry: 18, choc: 16.5)
-  led_pos_x: 0 # Led X position relative to the switch center
-  led_pos_y: 4.75 # Led Y position relative to the switch center
-  led_rotation: 0 # Led rotation
-  vertical_underglow_shift: 0.5 kp # How much to shift underglow leds tied to keys
-  switch_rotation: 180 # 0 = Hotswap south, led north
 
   # Physical measures
-  screw_radius: 1.1 # M2 screws
-  spacer_radius: 2.05 # M2 standoffs
   fillet_radius: 1
-  pcb_tolerance: 0.5 # How much to expand the PCB on a single side
-  frame_dimension: 4 # The size of the stacked acrylic frame
 
 points:
   zones:
@@ -27,58 +18,80 @@ points:
       key:
         tags:
           - key
+          - keys_matrix
       anchor:
         shift: [160, -175]
         rotate: 0
       rotate: 6.5
       rows:
-        bottom:
-          row_net:
-        home:
-          row_net:
-        top:
-          row_net:
+        R2:
+          row_net: R2
+        R1:
+          row_net: R1
+        R0:
+          row_net: R0
       columns:
-        pinkie:
-          key.stagger: -0.5ky
-        ring:
-          key.splay: -4
-          key.stagger: 7
-          key.spread: ks+1.25
-        middle:
-          key.splay: -2
-          key.stagger: 5
-          key.spread: ks+1.25
-        index:
-          key.stagger: -3
-          key.splay: -2
-          key.spread: ks+1.25
-        inner:
-          key.stagger: -5
-          key.splay: -1
-          key.spread: ks+1.25
+        C0:
+          key:
+            column_net: C0
+            stagger: -0.5ky
+        C1:
+          key:
+            column_net: C1
+            splay: -4
+            stagger: 7
+            spread: ks+1.25
+        C2:
+          key:
+            column_net: C2
+            splay: -2
+            stagger: 5
+            spread: ks+1.25
+        C3:
+          key:
+            column_net: C3
+            stagger: -3
+            splay: -2
+            spread: ks+1.25
+        C4:
+          key:
+            column_net: C4
+            stagger: -5
+            splay: -1
+            spread: ks+1.25
     thumbs:
       key:
         tags:
           - key
+          - keys_thumbs
       anchor:
-        ref: matrix_middle_bottom
+        ref: matrix_C2_R2
         shift: [0, -1U]
-      rows.thumbs.row_net:
+      rows:
+        R3:
+          row_net: R3
       columns:
-        middle:
-        inner:
-          key.splay: -2
-          key.stagger: -3.5
-          key.shift: [0.5, 0]
-          key.spread: ks+0.25
-        outer:
-          key.splay: -7
-          key.shift: [2.25, -5.75]
-        reach:
-          key.splay: 80
-          key.stagger: -0.5u
-          key.shift: [2.5, -4.25]
+        C1:
+          key:
+            column_net: C1
+        C2:
+          key:
+            column_net: C2
+            splay: -2
+            stagger: -3.5
+            shift: [0.5, 0]
+            spread: ks+0.25
+        C3:
+          key:
+            column_net: C3
+            splay: -7
+            shift: [2.25, -5.75]
+        C4:
+          key:
+            column_net: C4
+            splay: -6
+            stagger: -6.5
+            shift: [4, 0]
 outlines:
   debug_points:
     - what: rectangle
@@ -120,32 +133,19 @@ outlines:
     - what: polygon
       operation: add
       points:
-        - ref: thumbs_reach_thumbs
-          shift: [0.5kp, 0]
-        - ref: matrix_inner_bottom
-          shift: [0.2kp, -0.5kp]
-        - ref: matrix_inner_bottom
-          shift: [0.5kp, -kp]
-    - what: polygon
-      operation: add
-      points:
-        - ref: thumbs_outer_thumbs
-          shift: [1.7kp, 0.35kp]
-        - ref: matrix_inner_top
-          shift: [1.4kp, 0.5kp]
-        - ref: matrix_inner_top
-          shift: [0, 0.5kp]
-        - ref: thumbs_outer_thumbs
-          shift: [0, 0.4kp]
+        - ref: matrix_C4_R0
+          shift: [1.65kp, 0.25kp]
+        - ref: thumbs_C4_R3
+          shift: [0.5kp, 0.5kp]
+        - ref: thumbs_C3_R3
+          shift: [0, 0]
+        - ref: matrix_C4_R0
+          shift: [0, 0.25kp]
   pcb:
     - what: outline
       name: _base
-      expand: 2
-      fillet: fillet_radius
-  _pcb_tolerance:
-    - what: outline
-      name: pcb
-      expand: pcb_tolerance * 2
+      expand: 2.25
+      # fillet: fillet_radius
   preview:
     - what: outline
       name: debug_points
@@ -169,29 +169,62 @@ pcbs:
         where: [key]
         params:
           keycaps: true
-          reverse: true
+          reverse: false
           hotswap: false
           from: "{{column_net}}"
           to: "{{colrow}}"
-        adjust:
-          rotate: switch_rotation
-      diode:
+      diodes:
         what: custom/combo_diode
         where: [key]
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
+          # side: "B"
           include_smd: true
           include_tht: false
-          reversible: true
+          reversible: false
         adjust:
-          shift: [0, 8]
-          rotate: 0
+          shift: [-7, 5.5]
+          rotate: -90
       mcu:
-        what: custom/xiao
+        what: custom/xiao_ble
+        # what: custom/xiao_ble_kleeb
         params:
-          side: "F"
+          holes: true
+          dio: true
+          battery_minus: true
+          nfc: false
         where:
-          ref: matrix_inner_top
-          shift: [1kx, -(8)]
-      #     rotate: -90
+          ref: matrix_C4_R0
+          shift: [22, -3.8]
+      switch_reset:
+        what: custom/switch_reset
+        params:
+          side: "B"
+          from: "GND"
+          to: "RST"
+        where:
+          ref: matrix_C0_R0
+          # shift: [32, -16]
+          rotate: 90
+          shift: [0, 10]
+      switch_power:
+        what: custom/switch_power
+        where:
+          ref: matrix_C4_R0
+          shift: [0, 10]
+          rotate: 90
+        params:
+          side: "B"
+          from: "BAT+"
+          to: "BAT_P"
+      battery_pads:
+        what: custom/battery_pad
+        params:
+          side: "B"
+          pos: "BAT_P"
+          neg: "BAT-"
+        where:
+          ref: matrix_C4_R1
+          shift: [26.8, 0.8]
+          rotate: 90
