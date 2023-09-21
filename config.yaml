@@ -8,17 +8,12 @@ units:
   kcoh: 14 # key cutout hole height (cherry: 14, choc: 13.8)
   keycw: 18 # keycap width (cherry: 18, choc: 17.5)
   keych: 18 # keycap height (cherry: 18, choc: 16.5)
-
-  # Physical measures
-  fillet_radius: 1
-
 points:
   zones:
     matrix:
       key:
         tags:
           - key
-          - keys_matrix
       anchor:
         shift: [160, -175]
         rotate: 0
@@ -35,6 +30,9 @@ points:
           key:
             column_net: C0
             stagger: -0.5ky
+            tags:
+              - col0
+              - key
         C1:
           key:
             column_net: C1
@@ -63,7 +61,6 @@ points:
       key:
         tags:
           - key
-          - keys_thumbs
       anchor:
         ref: matrix_C2_R2
         shift: [0, -1U]
@@ -93,42 +90,57 @@ points:
             stagger: -6.5
             shift: [4, 0]
 outlines:
-  debug_points:
-    - what: rectangle
-      where: true
-      size: [6, 0.01]
-    - what: rectangle
-      where: true
-      size: [0.01, 4]
-    - what: circle
-      where: true
-      radius: 0.4
-      adjust:
-        shift: [3, 0]
-    - what: circle
-      where: true
-      radius: 0.4
-      adjust:
-        shift: [0, 2]
-    - what: rectangle
-      where: [key]
-      size: [kx, ky]
-      operation: stack
-    - what: rectangle
-      where: [key]
-      size: [kcow, kcoh]
-      operation: stack
-    - what: circle
-      where: [screw]
-      radius: 2
-      operation: stack
-  _switch_cutouts:
-    - what: rectangle
-      where: [key]
-      size: [kcow, kcoh]
+  # debug_points:
+  #   - what: rectangle
+  #     where: true
+  #     size: [6, 0.01]
+  #   - what: rectangle
+  #     where: true
+  #     size: [0.01, 4]
+  #   - what: circle
+  #     where: true
+  #     radius: 0.4
+  #     adjust:
+  #       shift: [3, 0]
+  #   - what: circle
+  #     where: true
+  #     radius: 0.4
+  #     adjust:
+  #       shift: [0, 2]
+  #   - what: rectangle
+  #     where: [key]
+  #     size: [kx, ky]
+  #     operation: stack
+  #   - what: rectangle
+  #     where: [key]
+  #     size: [kcow, kcoh]
+  #     operation: stack
+  #   - what: circle
+  #     where: [screw]
+  #     radius: 2
+  #     operation: stack
+  # _switch_cutouts:
+  #   - what: rectangle
+  #     where: [key]
+  #     size: [kcow, kcoh]
+  # preview:
+  #   - what: outline
+  #     name: debug_points
+  #   - what: rectangle
+  #     where: [key]
+  #     size: [keycw, keych]
+  #     operation: stack
+  #   - what: outline
+  #     name: _switch_cutouts
+  #     operation: stack
+  #   - what: outline
+  #     name: pcb
+  #     operation: stack
   _base:
     - what: rectangle
-      where: [key]
+      # where: [key]
+      where: true
+      bound: true
       size: [kp, kp]
     - what: polygon
       operation: add
@@ -144,21 +156,8 @@ outlines:
   pcb:
     - what: outline
       name: _base
-      expand: 2.25
-      # fillet: fillet_radius
-  preview:
-    - what: outline
-      name: debug_points
-    - what: rectangle
-      where: [key]
-      size: [keycw, keych]
-      operation: stack
-    - what: outline
-      name: _switch_cutouts
-      operation: stack
-    - what: outline
-      name: pcb
-      operation: stack
+      expand: 2
+      fillet: 0
 pcbs:
   goose:
     outlines:
@@ -166,37 +165,66 @@ pcbs:
     footprints:
       switches:
         what: mx
-        where: [key]
+        where:
+          - /matrix/
+          - /thumbs/
         params:
           keycaps: true
           reverse: false
           hotswap: false
           from: "{{column_net}}"
           to: "{{colrow}}"
+        adjust:
+          rotate: 180
       diodes:
         what: custom/combo_diode
-        where: [key]
+        where:
+          - /matrix/
+          - /thumbs/
         params:
+          side: "F"
           from: "{{colrow}}"
           to: "{{row_net}}"
-          # side: "B"
           include_smd: true
           include_tht: false
-          reversible: false
+          # reversible: false
         adjust:
-          shift: [-7, 5.5]
-          rotate: -90
+          shift: [-7, -5.5]
+          rotate: 180
       mcu:
         what: custom/xiao_ble
-        # what: custom/xiao_ble_kleeb
+        # what: custom/xiao_ble_smd_reversible
         params:
-          holes: true
+          side: "F"
+          holes: false
           dio: true
           battery_minus: true
           nfc: false
+          P0: "R0"
+          P1: "R1"
+          P2: "R2"
+          P3: "R3"
+          P4: "C0"
+          P5: "C1"
+          P6: "C2"
+          P9: "C3"
+          P10: "C4"
         where:
           ref: matrix_C4_R0
-          shift: [22, -3.8]
+          shift: [22.5, -4]
+          # rotate: 270
+      enc_wheel:
+        what: rotary
+        params:
+          from: ""
+          to: ""
+          A: "P7"
+          B: "P8"
+          C: "GND"
+        where:
+          ref: matrix_C4_R2
+          shift: [1.2kp, -3]
+          rotate: 270
       switch_reset:
         what: custom/switch_reset
         params:
@@ -204,27 +232,103 @@ pcbs:
           from: "GND"
           to: "RST"
         where:
-          ref: matrix_C0_R0
-          # shift: [32, -16]
-          rotate: 90
-          shift: [0, 10]
-      switch_power:
-        what: custom/switch_power
-        where:
           ref: matrix_C4_R0
           shift: [0, 10]
           rotate: 90
-        params:
-          side: "B"
-          from: "BAT+"
-          to: "BAT_P"
-      battery_pads:
+      # switch_power:
+      #   what: custom/switch_power
+      #   params:
+      #     side: "B"
+      #     from: "BAT_P"
+      #     to: "BAT+"
+      #   where:
+      #     ref: matrix_C4_R1
+      #     shift: [32, 0]
+      battery_connector:
         what: custom/battery_pad
         params:
-          side: "B"
-          pos: "BAT_P"
+          side: "F"
+          pos: "BAT+"
           neg: "BAT-"
         where:
           ref: matrix_C4_R1
-          shift: [26.8, 0.8]
-          rotate: 90
+          shift: [30, 3]
+          rotate: 0
+      mount_m2_c0_top:
+        what: custom/mounting_hole
+        params:
+        where:
+          ref.aggregate.parts:
+            [matrix_C0_R0, matrix_C1_R0, matrix_C0_R1, matrix_C1_R1]
+      mount_m2_c1_bottom:
+        what: custom/mounting_hole
+        params:
+        where:
+          ref.aggregate.parts:
+            [matrix_C0_R1, matrix_C1_R1, matrix_C0_R2, matrix_C1_R2]
+      mount_m2_c3_top:
+        what: custom/mounting_hole
+        params:
+        where:
+          ref.aggregate.parts: [matrix_C3_R0, matrix_C4_R0]
+          shift: [0, -1]
+      mount_m2_c2_bottom:
+        what: custom/mounting_hole
+        params:
+        where:
+          ref.aggregate.parts: [thumbs_C1_R3, matrix_C3_R2]
+          shift: [0, -2]
+      mount_m2_c4_bottom:
+        what: custom/mounting_hole
+        params:
+        where:
+          ref.aggregate.parts: [matrix_C4_R2, thumbs_C3_R3]
+          shift: [8, 0]
+      txt_peace_1:
+        what: custom/text
+        params:
+          side: "F"
+          text: "PEACE"
+        where:
+          ref: matrix_C0_R2
+          shift: [0, -10.4]
+      txt_peace_2:
+        what: custom/text
+        params:
+          side: "F"
+          text: "WAS"
+        where:
+          ref: matrix_C1_R2
+          shift: [0, -10.4]
+      txt_peace_3:
+        what: custom/text
+        params:
+          side: "F"
+          text: "NEVER"
+        where:
+          ref: thumbs_C1_R3
+          shift: [0, -10.4]
+      txt_peace_4:
+        what: custom/text
+        params:
+          side: "F"
+          text: "AN"
+        where:
+          ref: thumbs_C2_R3
+          shift: [0, -10.4]
+      txt_peace_5:
+        what: custom/text
+        params:
+          side: "F"
+          text: "OPTION!"
+        where:
+          ref: thumbs_C3_R3
+          shift: [0, -10.4]
+      txt_peace_6:
+        what: custom/text
+        params:
+          side: "F"
+          text: "[BONK!]"
+        where:
+          ref: thumbs_C4_R3
+          shift: [0, -10.4]

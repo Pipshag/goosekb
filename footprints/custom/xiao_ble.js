@@ -21,7 +21,7 @@ module.exports = {
   params: {
     class: "MCU",
     side: "F",
-    holes: true,
+    holes: false,
     dio: false,
     battery_minus: false,
     nfc: false,

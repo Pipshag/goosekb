@@ -16,7 +16,7 @@ module.exports = {
   },
   body: (p) => {
     const standard_opening = `
-        (module ComboDiode (layer ${p.side}.Cu) (tedit 5B24D78E)
+        (module Diode_SMD:D_SOD-123 (layer ${p.side}.Cu) (tedit 5B24D78E)
             ${p.at /* parametric position */}
             (attr virtual)
             (fp_text reference "${p.ref}" (at 0 0) (layer ${p.side}.SilkS) ${
