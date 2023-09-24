@@ -6,7 +6,7 @@
 
 module.exports = {
   params: {
-    designator: "D",
+    designator: "Di",
     from: undefined,
     to: undefined,
     include_smd: true,

@@ -90,52 +90,39 @@ points:
             stagger: -6.5
             shift: [4, 0]
 outlines:
-  # debug_points:
-  #   - what: rectangle
-  #     where: true
-  #     size: [6, 0.01]
-  #   - what: rectangle
-  #     where: true
-  #     size: [0.01, 4]
-  #   - what: circle
-  #     where: true
-  #     radius: 0.4
-  #     adjust:
-  #       shift: [3, 0]
-  #   - what: circle
-  #     where: true
-  #     radius: 0.4
-  #     adjust:
-  #       shift: [0, 2]
-  #   - what: rectangle
-  #     where: [key]
-  #     size: [kx, ky]
-  #     operation: stack
-  #   - what: rectangle
-  #     where: [key]
-  #     size: [kcow, kcoh]
-  #     operation: stack
-  #   - what: circle
-  #     where: [screw]
-  #     radius: 2
-  #     operation: stack
-  # _switch_cutouts:
-  #   - what: rectangle
-  #     where: [key]
-  #     size: [kcow, kcoh]
-  # preview:
-  #   - what: outline
-  #     name: debug_points
-  #   - what: rectangle
-  #     where: [key]
-  #     size: [keycw, keych]
-  #     operation: stack
-  #   - what: outline
-  #     name: _switch_cutouts
-  #     operation: stack
-  #   - what: outline
-  #     name: pcb
-  #     operation: stack
+  debug_points:
+    - what: rectangle
+      where: true
+      size: [6, 0.01]
+    - what: rectangle
+      where: true
+      size: [0.01, 4]
+    - what: circle
+      where: true
+      radius: 0.4
+      adjust:
+        shift: [3, 0]
+    - what: circle
+      where: true
+      radius: 0.4
+      adjust:
+        shift: [0, 2]
+    - what: rectangle
+      where: [key]
+      size: [kx, ky]
+      operation: stack
+    - what: rectangle
+      where: [key]
+      size: [kcow, kcoh]
+      operation: stack
+    - what: circle
+      where: [screw]
+      radius: 2
+      operation: stack
+  _switch_cutouts:
+    - what: rectangle
+      where: [key]
+      size: [kcow, kcoh]
   _base:
     - what: rectangle
       # where: [key]
@@ -158,6 +145,19 @@ outlines:
       name: _base
       expand: 2
       fillet: 0
+  preview:
+    - what: outline
+      name: debug_points
+    - what: rectangle
+      where: [key]
+      size: [keycw, keych]
+      operation: stack
+    - what: outline
+      name: _switch_cutouts
+      operation: stack
+    - what: outline
+      name: pcb
+      operation: stack
 pcbs:
   goose:
     outlines:
@@ -174,57 +174,57 @@ pcbs:
           hotswap: false
           from: "{{column_net}}"
           to: "{{colrow}}"
-        adjust:
-          rotate: 180
+        # adjust:
+        #   rotate: 180
       diodes:
         what: custom/combo_diode
         where:
           - /matrix/
           - /thumbs/
         params:
-          side: "F"
+          side: "B"
           from: "{{colrow}}"
           to: "{{row_net}}"
           include_smd: true
           include_tht: false
           # reversible: false
         adjust:
-          shift: [-7, -5.5]
-          rotate: 180
-      mcu:
+          shift: [-7, -4.5]
+          rotate: 90
+      xiao_ble:
         what: custom/xiao_ble
         # what: custom/xiao_ble_smd_reversible
         params:
           side: "F"
           holes: false
-          dio: true
+          dio: false
           battery_minus: true
           nfc: false
-          P0: "R0"
-          P1: "R1"
-          P2: "R2"
-          P3: "R3"
-          P4: "C0"
-          P5: "C1"
-          P6: "C2"
-          P9: "C3"
-          P10: "C4"
+          P2: "C4"
+          P3: "R0"
+          P4: "R1"
+          P5: "R2"
+          P6: "R3"
+          P7: "C0"
+          P8: "C1"
+          P9: "C2"
+          P10: "C3"
         where:
           ref: matrix_C4_R0
-          shift: [22.5, -4]
-          # rotate: 270
+          shift: [22, -4.5]
+          rotate: 270
       enc_wheel:
         what: rotary
         params:
           from: ""
           to: ""
-          A: "P7"
-          B: "P8"
+          A: "P0"
+          B: "P1"
           C: "GND"
         where:
           ref: matrix_C4_R2
-          shift: [1.2kp, -3]
-          rotate: 270
+          shift: [23.3, -2]
+      #     rotate: 180
       switch_reset:
         what: custom/switch_reset
         params:
@@ -232,8 +232,11 @@ pcbs:
           from: "GND"
           to: "RST"
         where:
+          # ref: matrix_C4_R1
+          # shift: [31.8, -1]
+          # rotate: 0
           ref: matrix_C4_R0
-          shift: [0, 10]
+          shift: [0, 9.7]
           rotate: 90
       # switch_power:
       #   what: custom/switch_power
@@ -242,17 +245,23 @@ pcbs:
       #     from: "BAT_P"
       #     to: "BAT+"
       #   where:
-      #     ref: matrix_C4_R1
-      #     shift: [32, 0]
+      #     ref: matrix_C4_R0
+      #     # ref: matrix_C4_R1
+      #     shift: [0, 9.6]
+      #     rotate: 90
       battery_connector:
         what: custom/battery_pad
         params:
-          side: "F"
+          side: "B"
           pos: "BAT+"
           neg: "BAT-"
         where:
-          ref: matrix_C4_R1
-          shift: [30, 3]
+          ref: matrix_C4_R0
+          shift: [23.3, -5]
+          # ref: matrix_C4_R0
+          # shift: [-10, 9]
+          # ref: matrix_C4_R1
+          # shift: [30, 3]
           rotate: 0
       mount_m2_c0_top:
         what: custom/mounting_hole

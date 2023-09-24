@@ -19,7 +19,7 @@
 
 module.exports = {
   params: {
-    class: "MCU",
+    // class: "MCU",
     side: "F",
     holes: false,
     dio: false,
@@ -54,33 +54,6 @@ module.exports = {
     const top = `
       (module "Seeeduino XIAO nRF52840" (layer "${p.side}.Cu") (tedit 613ABEDD)
         ${p.at /* parametric position */}
-
-        ${"" /* footprint reference */}
-        (fp_text reference "${p.ref}" (at 0 0) (layer F.SilkS) ${
-      p.ref_hide
-    } (effects (font (size 1.27 1.27) (thickness 0.15))))
-        (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
-
-        ${"" /* component outline */}
-        (fp_line (start -8.89 10.48) (end 8.89 10.48) (layer ${
-          p.side
-        }.SilkS) (width 0.15))
-        (fp_line (start 8.89 10.48) (end 8.89 9) (layer ${
-          p.side
-        }.SilkS) (width 0.15))
-        (fp_line (start -8.89 10.48) (end -8.89 9) (layer ${
-          p.side
-        }.SilkS) (width 0.15))
-
-        (fp_line (start 8.89 -10.48) (end -8.89 -10.48) (layer ${
-          p.side
-        }.SilkS) (width 0.15))
-        (fp_line (start -8.89 -10.48) (end -8.89 -9) (layer ${
-          p.side
-        }.SilkS) (width 0.15))
-        (fp_line (start 8.89 -10.48) (end 8.89 -9) (layer ${
-          p.side
-        }.SilkS) (width 0.15))
 
         ${"" /* illustration of the (possible) USB port overhang */}
         (fp_line (start -4.501 -4.655) (end -4.501 -12) (layer Dwgs.User) (width 0.15))
