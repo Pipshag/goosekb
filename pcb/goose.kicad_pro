@@ -372,6 +372,170 @@
       {
         "netclass": "Default",
         "pattern": "NFC1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": ""
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C0_R2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C0_R1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C0_R0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C1_R2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C1_R1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C1_R0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C2_R2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C2_R1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C2_R0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C3_R2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C3_R1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C3_R0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C4"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C4_R2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C4_R1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C4_R0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C1_R3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C2_R3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C3_R3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "C4_R3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "R2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "R1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "R0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "R3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P7"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P8"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "RAW3V3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "GND"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "RAW5V"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "BATP"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "BATN"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "RST"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "CLK"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "DIO"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "NFC0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "NFC1"
       }
     ]
   },

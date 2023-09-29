@@ -311,6 +311,102 @@
       },
       {
         "netclass": "Default",
+        "pattern": "rC0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C0_R2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C0_R1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C0_R0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "rC1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C1_R2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C1_R1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C1_R0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "rC2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C2_R2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C2_R1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C2_R0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "rC3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C3_R2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C3_R1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C3_R0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "rC4"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C4_R2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C4_R1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C4_R0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C1_R3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C2_R3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C3_R3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_C4_R3"
+      },
+      {
+        "netclass": "Default",
         "pattern": "R2"
       },
       {
@@ -327,11 +423,27 @@
       },
       {
         "netclass": "Default",
-        "pattern": "P0"
+        "pattern": "rR2"
       },
       {
         "netclass": "Default",
-        "pattern": "P1"
+        "pattern": "rR1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "rR0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "rR3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "RA"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "RB"
       },
       {
         "netclass": "Default",
@@ -347,11 +459,11 @@
       },
       {
         "netclass": "Default",
-        "pattern": "BAT+"
+        "pattern": "BATP"
       },
       {
         "netclass": "Default",
-        "pattern": "BAT-"
+        "pattern": "BATN"
       },
       {
         "netclass": "Default",
@@ -372,6 +484,50 @@
       {
         "netclass": "Default",
         "pattern": "NFC1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P5"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P6"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P7"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P8"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P9"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P10"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "rRA"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "rRB"
       }
     ]
   },
