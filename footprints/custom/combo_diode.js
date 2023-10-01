@@ -11,6 +11,7 @@ module.exports = {
     to: undefined,
     include_smd: true,
     include_tht: true,
+    include_via: true,
     side: "B",
     reversible: false,
   },
@@ -59,6 +60,10 @@ module.exports = {
             (pad 1 thru_hole rect (at -3.81 0 ${p.rot}) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) ${p.to.str})
             (pad 2 thru_hole circle (at 3.81 0 ${p.rot}) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) ${p.from.str})
         `;
+    const via = `
+            (pad "1" thru_hole circle (at -2.1 0) (size 0.6 0.6) (drill 0.3) (layers "*.Cu" "*.Mask") ${p.to.str})
+            (pad "2" thru_hole circle (at 2.1 0) (size 0.6 0.6) (drill 0.3) (layers "*.Cu" "*.Mask") ${p.from.str})
+    `;
     let final = standard_opening;
     if (p.side == "F" || p.reversible) {
       final += front_silk;
@@ -74,6 +79,9 @@ module.exports = {
     }
     if (p.include_tht) {
       final += tht;
+    }
+    if (p.include_via) {
+      final += via;
     }
     final += standard_closing;
     return final;

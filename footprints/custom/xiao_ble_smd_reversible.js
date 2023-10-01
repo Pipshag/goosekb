@@ -3,6 +3,7 @@
 // https://github.com/crides/kleeb/blob/master/mcu.pretty/xiao-ble-tht.kicad_mod 
 module.exports = {
   params: {
+    designator: 'MCU',
     D0: {type: 'net', value: 'D0'},
     D1: {type: 'net', value: 'D1'},
     D2: {type: 'net', value: 'D2'},
@@ -25,6 +26,12 @@ module.exports = {
       (layer "F.Cu")
       ${p.at /* parametric position */}
       (attr smd exclude_from_pos_files)
+
+      ${"" /* footprint reference */}
+      (fp_text reference "${p.ref}" (at 0 0) (layer F.SilkS) ${
+      p.ref_hide
+    } (effects (font (size 1.27 1.27) (thickness 0.15))))
+      (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
 
       (fp_rect (start -3.350197 -6.785813) (end -5.128197 -4.118813) (layer "Dwgs.User") (width 0.12) (fill none) (tstamp 06bccb0b-2f4b-4092-834b-3871294199da))
       (fp_rect (start 3.350197 -6.785813) (end 5.128197 -4.118813) (layer "Dwgs.User") (width 0.12) (fill none) (tstamp 2415f537-fa6d-4c04-bd97-00b9f7ab939d))
