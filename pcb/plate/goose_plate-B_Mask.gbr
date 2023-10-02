@@ -1,0 +1,32 @@
+%TF.GenerationSoftware,KiCad,Pcbnew,7.0.7*%
+%TF.CreationDate,2023-10-01T20:23:59+02:00*%
+%TF.ProjectId,goose_plate,676f6f73-655f-4706-9c61-74652e6b6963,v1.0.0*%
+%TF.SameCoordinates,Original*%
+%TF.FileFunction,Soldermask,Bot*%
+%TF.FilePolarity,Negative*%
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW 7.0.7) date 2023-10-01 20:23:59*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+%ADD10C,5.000000*%
+G04 APERTURE END LIST*
+D10*
+%TO.C,H2*%
+X188776286Y-151112864D03*
+%TD*%
+%TO.C,H5*%
+X270771266Y-173243668D03*
+%TD*%
+%TO.C,H1*%
+X187286472Y-132182973D03*
+%TD*%
+%TO.C,H3*%
+X229596977Y-121494108D03*
+%TD*%
+%TO.C,H4*%
+X229265419Y-159486874D03*
+%TD*%
+M02*
