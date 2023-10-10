@@ -20,15 +20,13 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB  &kp Q     &kp W      &kp E      &kp R      &kp T     &kp Y    &kp U     &kp I     &kp O
-&kp P    &kp BSPC  &kp LCTRL  &kp A      &kp S      &kp D     &kp F    &kp G     &kp H     &kp J
-&kp K    &kp L     &kp SEMI   &kp SQT    &kp LSHFT  &kp Z     &kp X    &kp C     &kp V     &kp B
-         &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH  &kp ESC  &kp LGUI  &kp LGUI
+&kp Q  &kp W     &kp F      &kp P      &kp G      &kp J     &kp L    &kp U     &kp Y     &kp APOSTROPHE
+&kp P  &kp BSPC  &kp LCTRL  &kp A      &kp S      &kp D     &kp F    &kp G     &kp H     &kp J
+&kp K  &kp L     &kp SEMI   &kp SQT    &kp LSHFT  &kp Z     &kp X    &kp C     &kp V     &kp B
+       &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH  &kp ESC  &kp LGUI  &kp LGUI
             >;
 
-            sensor-bindings =
-                <&inc_dec_kp A A>,
-                <&inc_dec_kp Q Q>;
+            sensor-bindings = <&inc_dec_kp A A>, <&inc_dec_kp Q Q>;
         };
 
         lower_layer {
