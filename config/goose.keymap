@@ -85,18 +85,40 @@
             #binding-cells = <0>;
             bindings = <&kp COLON>, <&kp SEMICOLON>;
         };
-        umt: umt {
-            compatible = "zmk,behavior-hold-tap";
-            label = "UTILITY_MT";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <SLOW_TAPPING_TERM_MS>;
-            require-prior-idle-ms = <REQ_IDLE_MS>;
-            flavor = "tap-preferred";
-            hold-trigger-key-positions = <20 21 22 23 24>;
-            quick-tap-ms = <QUICK_TAP_MS>;
-            hold-trigger-on-release;
+        umt_spas: umt_spas {
+          compatible = "zmk,behavior-tap-dance";
+          label = "UTILITY_MT_SPAS";
+          #binding-cells = <0>;
+          tapping-term-ms = <TAPPING_TERM_MS>;
+          bindings = <&kp B>, <&kp LS(LC(V))>;
+        };
+        umt_pas: umt_pas {
+          compatible = "zmk,behavior-tap-dance";
+          label = "UTILITY_MT_PAS";
+          #binding-cells = <0>;
+          tapping-term-ms = <TAPPING_TERM_MS>;
+          bindings = <&kp V>, <&kp LC(V)>;
+        };
+        umt_cop: umt_cop {
+          compatible = "zmk,behavior-tap-dance";
+          label = "UTILITY_MT_COP";
+          #binding-cells = <0>;
+          tapping-term-ms = <TAPPING_TERM_MS>;
+          bindings = <&kp C>, <&kp LC(C)>;
+        };
+        umt_cut: umt_cut {
+          compatible = "zmk,behavior-tap-dance";
+          label = "UTILITY_MT_CUT";
+          #binding-cells = <0>;
+          tapping-term-ms = <TAPPING_TERM_MS>;
+          bindings = <&kp X>, <&kp LC(X)>;
+        };
+        umt_und: umt_und {
+          compatible = "zmk,behavior-tap-dance";
+          label = "UTILITY_MT_UND";
+          #binding-cells = <0>;
+          tapping-term-ms = <TAPPING_TERM_MS>;
+          bindings = <&kp Z>, <&kp LC(Z)>;
         };
     };
 
@@ -105,19 +127,19 @@
 
         base {
             bindings = <
-//    ┌─────────┬─────────┬─────────┬─────────┬──────────┐   ┌─────┬──────────┬──────────┬───────┬──────┐
-//    │    Q    │    W    │    F    │    P    │     G    │   │  J  │     L    │     U    │   Y   │   '  │
-//    ├─────────┼─────────┼─────────┼─────────┼──────────┤   ├─────┼──────────┼──────────┼───────┼──────┤
-//    │   ◆ A   │   ⎇  R  │   ⎈ S   │   ⇧ T   │     D    │   │  H  │    ⇧ N   │    ⎈ E   │  ⎇  I │  ◆ O │
-//    ├─────────┼─────────┼─────────┼─────────┼──────────┤   ├─────┼──────────┼──────────┼───────┼──────┤
-//    │ ░ Und Z │ ░ Cut X │ ░ Cop C │ ░ Pas V │ ░ LCSv B │   │  K  │     M    │     ,    │   .   │   /  │
-//    └─────────┼─────────┼─────────┼─────────┼──────────┤   ├─────┼──────────┼──────────┼───────┼──────┘
-//              │    ·    │   ESC   │ ◆ NAV ␣ │  ⇧/Word  │   │  ⏎  │ ◆ NUM ⌫  │ ◆ SYM ⌦  │   ↹   │       
-//              └─────────┴─────────┴─────────┴──────────┘   └─────┴──────────┴──────────┴───────┘       
-  &kp Q             &kp W             &kp F                 &kp P               &kp G                  &kp J       &kp L                &kp U                  &kp Y              &kp APOSTROPHE  
-  &hml LEFT_GUI A   &hml LEFT_ALT R   &hml LEFT_CONTROL S   &hml LEFT_SHIFT T   &kp D                  &kp H       &hmr RIGHT_SHIFT N   &hmr RIGHT_CONTROL E   &hmr RIGHT_ALT I   &hmr RIGHT_GUI O
-  &umt LC(Z) Z      &umt LC(X) X      &umt LC(C) C          &umt LC(V) V        &umt LC(LS(V)) B       &kp K       &kp M                &kp COMMA              &kp PERIOD         &kp SLASH       
-                    &trans            &kp ESCAPE            &lt 3 SPACE         &ss_cw                 &kp ENTER   &lt 1 BACKSPACE      &lt 2 DELETE           &kp TAB                            
+//    ┌───────┬───────┬───────┬─────────┬────────┐   ┌─────┬──────────┬──────────┬───────┬──────┐
+//    │   Q   │   W   │   F   │    P    │    G   │   │  J  │     L    │     U    │   Y   │   '  │
+//    ├───────┼───────┼───────┼─────────┼────────┤   ├─────┼──────────┼──────────┼───────┼──────┤
+//    │  ◆ A  │  ⎇  R │  ⎈ S  │   ⇧ T   │    D   │   │  H  │    ⇧ N   │    ⎈ E   │  ⎇  I │  ◆ O │
+//    ├───────┼───────┼───────┼─────────┼────────┤   ├─────┼──────────┼──────────┼───────┼──────┤
+//    │ ░_und │ ░_cut │ ░_cop │  ░_pas  │ ░_spas │   │  K  │     M    │     ,    │   .   │   /  │
+//    └───────┼───────┼───────┼─────────┼────────┤   ├─────┼──────────┼──────────┼───────┼──────┘
+//            │   ·   │  ESC  │ ◆ NAV ␣ │ ⇧/Word │   │  ⏎  │ ◆ NUM ⌫  │ ◆ SYM ⌦  │   ↹   │       
+//            └───────┴───────┴─────────┴────────┘   └─────┴──────────┴──────────┴───────┘       
+  &kp Q             &kp W             &kp F                 &kp P               &kp G           &kp J       &kp L                &kp U                  &kp Y              &kp APOSTROPHE  
+  &hml LEFT_GUI A   &hml LEFT_ALT R   &hml LEFT_CONTROL S   &hml LEFT_SHIFT T   &kp D           &kp H       &hmr RIGHT_SHIFT N   &hmr RIGHT_CONTROL E   &hmr RIGHT_ALT I   &hmr RIGHT_GUI O
+  &umt_und          &umt_cut          &umt_cop              &umt_pas            &umt_spas       &kp K       &kp M                &kp COMMA              &kp PERIOD         &kp SLASH       
+                    &trans            &kp ESCAPE            &lt 3 SPACE         &ss_cw          &kp ENTER   &lt 1 BACKSPACE      &lt 2 DELETE           &kp TAB                            
             >;
 
             sensor-bindings =
