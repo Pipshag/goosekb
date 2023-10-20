@@ -1,9 +1,0 @@
-#include "goose.dtsi"
-
-&default_transform {
-  col-offset = <5>;
-};
-
-&right_encoder {
-    status = "okay";
-};

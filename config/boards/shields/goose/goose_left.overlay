@@ -1,5 +1,0 @@
-#include "goose.dtsi"
-
-&left_encoder {
-    status = "okay";
-};
