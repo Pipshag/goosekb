@@ -9,7 +9,7 @@
 #include <dt-bindings/zmk/keys.h>
 
 #define QUICK_TAP_MS 125
-#define TAPPING_TERM_MS 175
+#define TAPPING_TERM_MS 150
 #define SLOW_TAPPING_TERM_MS 350
 #define IDLE_TIMEOUT_MS 5000
 #define REQ_IDLE_MS 150
@@ -85,41 +85,6 @@
             #binding-cells = <0>;
             bindings = <&kp COLON>, <&kp SEMICOLON>;
         };
-        umt_spas: umt_spas {
-          compatible = "zmk,behavior-tap-dance";
-          label = "UTILITY_MT_SPAS";
-          #binding-cells = <0>;
-          tapping-term-ms = <TAPPING_TERM_MS>;
-          bindings = <&kp B>, <&kp LS(LC(V))>;
-        };
-        umt_pas: umt_pas {
-          compatible = "zmk,behavior-tap-dance";
-          label = "UTILITY_MT_PAS";
-          #binding-cells = <0>;
-          tapping-term-ms = <TAPPING_TERM_MS>;
-          bindings = <&kp V>, <&kp LC(V)>;
-        };
-        umt_cop: umt_cop {
-          compatible = "zmk,behavior-tap-dance";
-          label = "UTILITY_MT_COP";
-          #binding-cells = <0>;
-          tapping-term-ms = <TAPPING_TERM_MS>;
-          bindings = <&kp C>, <&kp LC(C)>;
-        };
-        umt_cut: umt_cut {
-          compatible = "zmk,behavior-tap-dance";
-          label = "UTILITY_MT_CUT";
-          #binding-cells = <0>;
-          tapping-term-ms = <TAPPING_TERM_MS>;
-          bindings = <&kp X>, <&kp LC(X)>;
-        };
-        umt_und: umt_und {
-          compatible = "zmk,behavior-tap-dance";
-          label = "UTILITY_MT_UND";
-          #binding-cells = <0>;
-          tapping-term-ms = <TAPPING_TERM_MS>;
-          bindings = <&kp Z>, <&kp LC(Z)>;
-        };
     };
 
     keymap {
@@ -127,19 +92,19 @@
 
         base {
             bindings = <
-//    ┌───────┬───────┬───────┬─────────┬────────┐   ┌─────┬──────────┬──────────┬───────┬──────┐
-//    │   Q   │   W   │   F   │    P    │    G   │   │  J  │     L    │     U    │   Y   │   '  │
-//    ├───────┼───────┼───────┼─────────┼────────┤   ├─────┼──────────┼──────────┼───────┼──────┤
-//    │  ◆ A  │  ⎇  R │  ⎈ S  │   ⇧ T   │    D   │   │  H  │    ⇧ N   │    ⎈ E   │  ⎇  I │  ◆ O │
-//    ├───────┼───────┼───────┼─────────┼────────┤   ├─────┼──────────┼──────────┼───────┼──────┤
-//    │ ░_und │ ░_cut │ ░_cop │  ░_pas  │ ░_spas │   │  K  │     M    │     ,    │   .   │   /  │
-//    └───────┼───────┼───────┼─────────┼────────┤   ├─────┼──────────┼──────────┼───────┼──────┘
-//            │   ·   │  ESC  │ ◆ NAV ␣ │ ⇧/Word │   │  ⏎  │ ◆ NUM ⌫  │ ◆ SYM ⌦  │   ↹   │       
-//            └───────┴───────┴─────────┴────────┘   └─────┴──────────┴──────────┴───────┘       
-  &kp Q             &kp W             &kp F                 &kp P               &kp G           &kp J       &kp L                &kp U                  &kp Y              &kp APOSTROPHE  
-  &hml LEFT_GUI A   &hml LEFT_ALT R   &hml LEFT_CONTROL S   &hml LEFT_SHIFT T   &kp D           &kp H       &hmr RIGHT_SHIFT N   &hmr RIGHT_CONTROL E   &hmr RIGHT_ALT I   &hmr RIGHT_GUI O
-  &umt_und          &umt_cut          &umt_cop              &umt_pas            &umt_spas       &kp K       &kp M                &kp COMMA              &kp PERIOD         &kp SLASH       
-                    &trans            &kp ESCAPE            &lt 3 SPACE         &ss_cw          &kp ENTER   &lt 1 BACKSPACE      &lt 2 DELETE           &kp TAB                            
+//    ┌──────┬───────┬──────┬─────────┬────────┐   ┌─────┬──────────┬──────────┬───────┬──────┐
+//    │   Q  │   W   │   F  │    P    │    G   │   │  J  │     L    │     U    │   Y   │   '  │
+//    ├──────┼───────┼──────┼─────────┼────────┤   ├─────┼──────────┼──────────┼───────┼──────┤
+//    │  ◆ A │  ⎇  R │  ⎈ S │   ⇧ T   │    D   │   │  H  │    ⇧ N   │    ⎈ E   │  ⎇  I │  ◆ O │
+//    ├──────┼───────┼──────┼─────────┼────────┤   ├─────┼──────────┼──────────┼───────┼──────┤
+//    │   Z  │   X   │   C  │    V    │    B   │   │  K  │     M    │     ,    │   .   │   /  │
+//    └──────┼───────┼──────┼─────────┼────────┤   ├─────┼──────────┼──────────┼───────┼──────┘
+//           │   ·   │  ESC │ ◆ NAV ␣ │ ⇧/Word │   │  ⏎  │ ◆ NUM ⌫  │ ◆ SYM ⌦  │   ↹   │       
+//           └───────┴──────┴─────────┴────────┘   └─────┴──────────┴──────────┴───────┘       
+  &kp Q             &kp W             &kp F                 &kp P               &kp G        &kp J       &kp L                &kp U                  &kp Y              &kp APOSTROPHE  
+  &hml LEFT_GUI A   &hml LEFT_ALT R   &hml LEFT_CONTROL S   &hml LEFT_SHIFT T   &kp D        &kp H       &hmr RIGHT_SHIFT N   &hmr RIGHT_CONTROL E   &hmr RIGHT_ALT I   &hmr RIGHT_GUI O
+  &kp Z             &kp X             &kp C                 &kp V               &kp B        &kp K       &kp M                &kp COMMA              &kp PERIOD         &kp SLASH       
+                    &trans            &kp ESCAPE            &lt 3 SPACE         &ss_cw       &kp ENTER   &lt 1 BACKSPACE      &lt 2 DELETE           &kp TAB                            
             >;
 
             sensor-bindings =
@@ -189,19 +154,19 @@
 
         nav_sys {
             bindings = <
-//    ┌────────────┬──────────────┬────────────┬───┬───────────┐   ┌───────┬────┬────┬──────────────┬─────────┐
-//    │ &bt BT_CLR │  &bt BT_PRV  │ &bt BT_NXT │   │           │   │  ⇞ ↑  │  H │  J │       K      │    L    │
-//    ├────────────┼──────────────┼────────────┼───┼───────────┤   ├───────┼────┼────┼──────────────┼─────────┤
-//    │            │              │            │   │           │   │  ⇟ DN │  ← │  ↓ │       ↑      │    →    │
-//    ├────────────┼──────────────┼────────────┼───┼───────────┤   ├───────┼────┼────┼──────────────┼─────────┤
-//    │  ↺ Reset   │              │            │   │           │   │       │    │    │              │ ↺ Reset │
-//    └────────────┼──────────────┼────────────┼───┼───────────┤   ├───────┼────┼────┼──────────────┼─────────┘
-//                 │ ⌀ Bootloader │     ·      │ · │ &tog FLAT │   │   ·   │ ·  │ ·  │ ⌀ Bootloader │          
-//                 └──────────────┴────────────┴───┴───────────┘   └───────┴────┴────┴──────────────┘          
-  &bt BT_CLR   &bt BT_PRV    &bt BT_NXT   &none    &none        &kp PG_UP   &kp H      &kp J      &kp K         &kp L     
-  &none        &none         &none        &none    &none        &kp PG_DN   &kp LEFT   &kp DOWN   &kp UP        &kp RIGHT 
-  &sys_reset   &none         &none        &none    &none        &none       &none      &none      &none         &sys_reset
-               &bootloader   &trans       &trans   &tog 4       &trans      &trans     &trans     &bootloader             
+//    ┌────────────┬──────────────┬────────────┬──────┬───────────┐   ┌───────┬────┬────┬──────────────┬─────────┐
+//    │ &bt BT_CLR │  &bt BT_PRV  │ &bt BT_NXT │      │           │   │  ⇞ ↑  │  H │  J │       K      │    L    │
+//    ├────────────┼──────────────┼────────────┼──────┼───────────┤   ├───────┼────┼────┼──────────────┼─────────┤
+//    │  ↺ Reset   │              │            │      │           │   │  ⇟ DN │  ← │  ↓ │       ↑      │    →    │
+//    ├────────────┼──────────────┼────────────┼──────┼───────────┤   ├───────┼────┼────┼──────────────┼─────────┤
+//    │     Und    │      Cut     │     Cop    │  Pas │  LS(Pas)  │   │       │    │    │              │ ↺ Reset │
+//    └────────────┼──────────────┼────────────┼──────┼───────────┤   ├───────┼────┼────┼──────────────┼─────────┘
+//                 │ ⌀ Bootloader │     ·      │  ·   │ &tog FLAT │   │   ·   │ ·  │ ·  │ ⌀ Bootloader │          
+//                 └──────────────┴────────────┴──────┴───────────┘   └───────┴────┴────┴──────────────┘          
+  &bt BT_CLR   &bt BT_PRV    &bt BT_NXT   &none       &none               &kp PG_UP   &kp H      &kp J      &kp K         &kp L     
+  &sys_reset   &none         &none        &none       &none               &kp PG_DN   &kp LEFT   &kp DOWN   &kp UP        &kp RIGHT 
+  &kp LC(Z)    &kp LC(X)     &kp LC(C)    &kp LC(V)   &kp LS(LC(V))       &none       &none      &none      &none         &sys_reset
+               &bootloader   &trans       &trans      &tog 4              &trans      &trans     &trans     &bootloader             
             >;
         };
 
