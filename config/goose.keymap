@@ -92,19 +92,10 @@
 
         base {
             bindings = <
-//    ┌──────┬───────┬──────┬─────────┬────────┐   ┌─────┬──────────┬──────────┬───────┬──────┐
-//    │   Q  │   W   │   F  │    P    │    G   │   │  J  │     L    │     U    │   Y   │   '  │
-//    ├──────┼───────┼──────┼─────────┼────────┤   ├─────┼──────────┼──────────┼───────┼──────┤
-//    │  ◆ A │  ⎇  R │  ⎈ S │   ⇧ T   │    D   │   │  H  │    ⇧ N   │    ⎈ E   │  ⎇  I │  ◆ O │
-//    ├──────┼───────┼──────┼─────────┼────────┤   ├─────┼──────────┼──────────┼───────┼──────┤
-//    │   Z  │   X   │   C  │    V    │    B   │   │  K  │     M    │     ,    │   .   │   /  │
-//    └──────┼───────┼──────┼─────────┼────────┤   ├─────┼──────────┼──────────┼───────┼──────┘
-//           │   ·   │  ESC │ ◆ NAV ␣ │ ⇧/Word │   │  ⏎  │ ◆ NUM ⌫  │ ◆ SYM ⌦  │   ↹   │       
-//           └───────┴──────┴─────────┴────────┘   └─────┴──────────┴──────────┴───────┘       
-  &kp Q             &kp W             &kp F                 &kp P               &kp G        &kp J       &kp L                &kp U                  &kp Y              &kp APOSTROPHE  
-  &hml LEFT_GUI A   &hml LEFT_ALT R   &hml LEFT_CONTROL S   &hml LEFT_SHIFT T   &kp D        &kp H       &hmr RIGHT_SHIFT N   &hmr RIGHT_CONTROL E   &hmr RIGHT_ALT I   &hmr RIGHT_GUI O
-  &kp Z             &kp X             &kp C                 &kp V               &kp B        &kp K       &kp M                &kp COMMA              &kp PERIOD         &kp SLASH       
-                    &trans            &kp ESCAPE            &lt 3 SPACE         &ss_cw       &kp ENTER   &lt 1 BACKSPACE      &lt 2 DELETE           &kp TAB                            
+&kp Q            &kp W            &kp F                &kp P              &kp G   &kp J      &kp L               &kp U                 &kp Y             &kp APOSTROPHE
+&hml LEFT_GUI A  &hml LEFT_ALT R  &hml LEFT_CONTROL S  &hml LEFT_SHIFT T  &kp D   &kp H      &hmr RIGHT_SHIFT N  &hmr RIGHT_CONTROL E  &hmr RIGHT_ALT I  &hmr RIGHT_GUI O
+&kp Z            &kp X            &kp C                &kp V              &kp B   &kp K      &kp M               &kp COMMA             &kp PERIOD        &kp SLASH
+                 &trans           &kp ESCAPE           &lt 3 SPACE        &ss_cw  &kp ENTER  &lt 1 BACKSPACE     &lt 2 DELETE          &kp RIGHT_ALT
             >;
 
             sensor-bindings =
@@ -114,19 +105,10 @@
 
         num_fun {
             bindings = <
-//    ┌───┬────┬────┬────┬────┐   ┌─────┬─────┬─────┬─────┬──────┐
-//    │   │  7 │  8 │  9 │    │   │  ⏮  │  F7 │  F8 │  F9 │  F12 │
-//    ├───┼────┼────┼────┼────┤   ├─────┼─────┼─────┼─────┼──────┤
-//    │   │  4 │  5 │  6 │    │   │  ⏯  │  F4 │  F5 │  F6 │      │
-//    ├───┼────┼────┼────┼────┤   ├─────┼─────┼─────┼─────┼──────┤
-//    │   │  1 │  2 │  3 │  . │   │  ⏭  │  F1 │  F2 │  F3 │      │
-//    └───┼────┼────┼────┼────┤   ├─────┼─────┼─────┼─────┼──────┘
-//        │  + │  = │  0 │  - │   │  ·  │  ·  │  ·  │  ·  │       
-//        └────┴────┴────┴────┘   └─────┴─────┴─────┴─────┘       
-  &none   &kp N7     &kp N8      &kp N9   &none           &kp C_PREV   &kp F7   &kp F8   &kp F9   &kp F12
-  &none   &kp N4     &kp N5      &kp N6   &none           &kp C_PP     &kp F4   &kp F5   &kp F6   &none  
-  &none   &kp N1     &kp N2      &kp N3   &kp DOT         &kp C_NEXT   &kp F1   &kp F2   &kp F3   &none  
-          &kp PLUS   &kp EQUAL   &kp N0   &kp MINUS       &trans       &trans   &trans   &trans          
+&none  &kp N7    &kp N8     &kp N9  &none      &kp C_PREV  &kp F7  &kp F8  &kp F9  &kp F12
+&none  &kp N4    &kp N5     &kp N6  &none      &kp C_PP    &kp F4  &kp F5  &kp F6  &none
+&none  &kp N1    &kp N2     &kp N3  &kp DOT    &kp C_NEXT  &kp F1  &kp F2  &kp F3  &none
+       &kp PLUS  &kp EQUAL  &kp N0  &kp MINUS  &trans      &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp K_REDO K_UNDO>;
@@ -134,19 +116,10 @@
 
         sym_uti {
             bindings = <
-//    ┌────┬────┬────┬────┬─────┐   ┌───┬────┬────┬────┬────┐
-//    │  % │  ^ │  $ │  € │ : ; │   │   │  { │  } │  @ │  # │
-//    ├────┼────┼────┼────┼─────┤   ├───┼────┼────┼────┼────┤
-//    │  / │  * │  - │  + │  |  │   │   │  ( │  ) │  < │  > │
-//    ├────┼────┼────┼────┼─────┤   ├───┼────┼────┼────┼────┤
-//    │  \ │  & │  ! │  = │  _  │   │   │  [ │  ] │  ~ │  ` │
-//    └────┼────┼────┼────┼─────┤   ├───┼────┼────┼────┼────┘
-//         │ ·  │ ·  │ ·  │  ·  │   │ · │ ·  │ ·  │ ·  │     
-//         └────┴────┴────┴─────┘   └───┴────┴────┴────┘     
-  &kp PERCENT   &kp CARET       &kp DOLLAR        &kp RA(N5)   &cln_scln_td         &none    &kp LEFT_BRACE         &kp RIGHT_BRACE         &kp AT_SIGN     &kp HASH        
-  &kp FSLH      &kp ASTERISK    &kp MINUS         &kp PLUS     &kp PIPE             &none    &kp LEFT_PARENTHESIS   &kp RIGHT_PARENTHESIS   &kp LESS_THAN   &kp GREATER_THAN
-  &kp BSLH      &kp AMPERSAND   &kp EXCLAMATION   &kp EQUAL    &kp UNDERSCORE       &none    &kp LBKT               &kp RBKT                &kp TILDE       &kp GRAVE       
-                &trans          &trans            &trans       &trans               &trans   &trans                 &trans                  &trans                          
+&kp PERCENT  &kp CARET      &kp DOLLAR       &kp RA(N5)  &cln_scln_td    &none   &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp AT_SIGN    &kp HASH
+&kp FSLH     &kp ASTERISK   &kp MINUS        &kp PLUS    &kp PIPE        &none   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LESS_THAN  &kp GREATER_THAN
+&kp BSLH     &kp AMPERSAND  &kp EXCLAMATION  &kp EQUAL   &kp UNDERSCORE  &none   &kp LBKT              &kp RBKT               &kp TILDE      &kp GRAVE
+             &trans         &trans           &trans      &trans          &trans  &trans                &trans                 &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(RIGHT) LC(LEFT)>;
@@ -154,37 +127,19 @@
 
         nav_sys {
             bindings = <
-//    ┌────────────┬──────────────┬────────────┬──────┬───────────┐   ┌───────┬────┬────┬──────────────┬─────────┐
-//    │ &bt BT_CLR │  &bt BT_PRV  │ &bt BT_NXT │      │  ↺ Reset  │   │  ⇞ ↑  │  H │  J │       K      │    L    │
-//    ├────────────┼──────────────┼────────────┼──────┼───────────┤   ├───────┼────┼────┼──────────────┼─────────┤
-//    │    LC(A)   │              │            │   ↹  │           │   │  ⇟ DN │  ← │  ↓ │       ↑      │    →    │
-//    ├────────────┼──────────────┼────────────┼──────┼───────────┤   ├───────┼────┼────┼──────────────┼─────────┤
-//    │     Und    │      Cut     │     Cop    │  Pas │  LS(Pas)  │   │       │    │    │              │ ↺ Reset │
-//    └────────────┼──────────────┼────────────┼──────┼───────────┤   ├───────┼────┼────┼──────────────┼─────────┘
-//                 │ ⌀ Bootloader │     ·      │  ·   │ &tog FLAT │   │   ·   │ ·  │ ·  │ ⌀ Bootloader │          
-//                 └──────────────┴────────────┴──────┴───────────┘   └───────┴────┴────┴──────────────┘          
-  &bt BT_CLR   &bt BT_PRV    &bt BT_NXT   &none       &sys_reset          &kp PG_UP   &kp H      &kp J      &kp K         &kp L     
-  &kp LC(A)    &none         &none        &kp TAB     &none               &kp PG_DN   &kp LEFT   &kp DOWN   &kp UP        &kp RIGHT 
-  &kp LC(Z)    &kp LC(X)     &kp LC(C)    &kp LC(V)   &kp LS(LC(V))       &none       &none      &none      &none         &sys_reset
-               &bootloader   &trans       &trans      &tog 4              &trans      &trans     &trans     &bootloader             
+&bt BT_CLR  &kp LS(TAB)  &kp TAB     &kp LC(LS(TAB))  &kp LC(TAB)    &kp PG_UP  &kp H     &kp J       &kp K        &kp L
+&kp LC(A)   &none        &none       &none            &none          &kp PG_DN  &kp LEFT  &kp DOWN    &kp UP       &kp RIGHT
+&kp LC(Z)   &kp LC(X)    &kp LC(C)   &kp LC(V)        &kp LS(LC(V))  &none      &none     &none       &none        &none
+            &bootloader  &sys_reset  &trans           &tog 4         &trans     &trans    &sys_reset  &bootloader
             >;
         };
 
         flat {
             bindings = <
-//    ┌────┬────┬──────┬────┬────────┐   ┌─────┬───────┬────┬───────────┬────┐
-//    │  Q │  W │   F  │  P │    G   │   │  J  │   L   │  U │     Y     │  ' │
-//    ├────┼────┼──────┼────┼────────┤   ├─────┼───────┼────┼───────────┼────┤
-//    │  A │  R │   S  │  T │    D   │   │  H  │   N   │  E │     I     │  O │
-//    ├────┼────┼──────┼────┼────────┤   ├─────┼───────┼────┼───────────┼────┤
-//    │  Z │  X │   C  │  V │    B   │   │  K  │   M   │  , │     .     │  / │
-//    └────┼────┼──────┼────┼────────┤   ├─────┼───────┼────┼───────────┼────┘
-//         │  ↹ │  ESC │  ␣ │  LSHFT │   │  ⏎  │  BSPC │  ↹ │ &tog FLAT │     
-//         └────┴──────┴────┴────────┘   └─────┴───────┴────┴───────────┘     
-  &kp Q   &kp W     &kp F     &kp P       &kp G           &kp J       &kp L      &kp U       &kp Y     &kp APOSTROPHE
-  &kp A   &kp R     &kp S     &kp T       &kp D           &kp H       &kp N      &kp E       &kp I     &kp O         
-  &kp Z   &kp X     &kp C     &kp V       &kp B           &kp K       &kp M      &kp COMMA   &kp DOT   &kp FSLH      
-          &kp TAB   &kp ESC   &kp SPACE   &kp LSHFT       &kp ENTER   &kp BSPC   &kp TAB     &tog 4                  
+&kp Q  &kp W    &kp F    &kp P      &kp G      &kp J      &kp L     &kp U      &kp Y    &kp APOSTROPHE
+&kp A  &kp R    &kp S    &kp T      &kp D      &kp H      &kp N     &kp E      &kp I    &kp O
+&kp Z  &kp X    &kp C    &kp V      &kp B      &kp K      &kp M     &kp COMMA  &kp DOT  &kp FSLH
+       &kp TAB  &kp ESC  &kp SPACE  &kp LSHFT  &kp ENTER  &kp BSPC  &kp TAB    &tog 4
             >;
         };
 
