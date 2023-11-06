@@ -69,16 +69,21 @@ points:
       columns:
         C1:
           key:
+            bind: [5,5,0,0]
             column_net: C1
             stagger: -1
+            #shift: [-0, 0cy]
+            splay: -2
         C2:
           key:
+            bind: [5,5,0,0]
             column_net: C2
             splay: -2
             stagger: -2.5
             shift: [-0.1, 0]
         C3:
           key:
+            bind: [0,0,0,0]
             column_net: C3
             splay: -4
             shift: [0.25, -5.35]
@@ -102,17 +107,22 @@ points:
     mountscrew_c3_top:
       anchor:
         ref.aggregate.parts: [matrix_C2_R0, matrix_C3_R0]
-        shift: [0, -8]
+        shift: [0, -3]
       columns.screw.key.tags: [screw]
     mountscrew_c2_bottom:
       anchor:
         ref.aggregate.parts: [matrix_C2_R2, matrix_C3_R2]
-        shift: [0, -8]
+        shift: [0.1, -6]
       columns.screw.key.tags: [screw]
     mountscrew_c4_bottom:
       anchor:
-        ref.aggregate.parts: [thumbs_C3_R3, thumbs_C4_R3]
-        shift: [0, 8]
+        ref.aggregate.parts: [thumbs_C3_R3, thumbs_C2_R3, matrix_C4_R2]
+        shift: [-2, -2]
+      columns.screw.key.tags: [screw]
+    mountscrew_c4_top:
+      anchor: 
+        ref: matrix_C4_R0
+        shift: [0.5cx, -0.5cy]
       columns.screw.key.tags: [screw]
 outlines:
   debug_points:
@@ -164,7 +174,9 @@ outlines:
         - ref: thumbs_C4_R3
           shift: [0.5cx, 0.5cy]
         - ref: thumbs_C3_R3
-          shift: [0, 0]
+          shift: [-0.5cx, 0.5cy]
+        - ref: thumbs_C3_R3
+          shift: [0.5cx, 0]
         - ref: matrix_C4_R0
           shift: [0, 0.25cy]
     - what: outline
