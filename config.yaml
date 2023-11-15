@@ -1,17 +1,20 @@
 units:
   # Key and keycap measures
-  kx: u # spacing between key centers (X-axis)
-  ky: u # spacing between key centers (Y-axis)
-  kp: 19 # padding (default: 19)
+  kx: cx # spacing between key centers (X-axis)
+  ky: cy # spacing between key centers (Y-axis)  kp: 19 # padding (default: 19)
   ks: 19 # spread (deafult: 19)
-  kcow: 14 # key cutout hole width (cherry: 14, choc: 13.8)
-  kcoh: 14 # key cutout hole height (cherry: 14, choc: 13.8)
-  keycw: 18 # keycap width (cherry: 18, choc: 17.5)
-  keych: 18 # keycap height (cherry: 18, choc: 16.5)
+  kp: cx
+  kcow: 13.8 # key cutout hole width (cherry: 14, choc: 13.8)
+  kcoh: 13.8 # key cutout hole height (cherry: 14, choc: 13.8)
+  keycw: 17.5 # keycap width (cherry: 18, choc: 17.5)
+  keych: 16.5 # keycap height (cherry: 18, choc: 16.5)
+  $default_autobind: 5
 points:
   zones:
     matrix:
       key:
+        padding: cy
+        spread: ks
         tags:
           - key
       anchor:
@@ -29,72 +32,68 @@ points:
         C0:
           key:
             column_net: C0
-            stagger: -0.5ky
-            tags:
-              - col0
-              - key
+            stagger: 6
+            splay: 0
         C1:
           key:
             column_net: C1
             splay: -4
             stagger: 7
-            spread: ks+1.25
         C2:
           key:
             column_net: C2
             splay: -2
             stagger: 5
-            spread: ks+1.25
         C3:
           key:
             column_net: C3
             stagger: -3
             splay: -2
-            spread: ks+1.25
         C4:
           key:
             column_net: C4
             stagger: -5
             splay: -1
-            spread: ks+1.25
     thumbs:
       key:
+        padding: cy
+        spread: ks
         tags:
           - key
       anchor:
         ref: matrix_C2_R2
-        shift: [0, -1U]
+        shift: [0.5cx, -1.25cy]
       rows:
         R3:
           row_net: R3
       columns:
         C1:
           key:
+            bind: [5,5,0,0]
             column_net: C1
             stagger: -1
+            #shift: [-0, 0cy]
+            splay: -2
         C2:
           key:
+            bind: [5,5,0,0]
             column_net: C2
-            splay: -2
-            stagger: -2.5
-            shift: [0.5, 0]
-            spread: ks+0.25
+            splay: -8
+            stagger: -2
+            shift: [0.2cy, -0.15cy]
         C3:
           key:
+            bind: [0,0,0,0]
             column_net: C3
-            splay: -7
-            shift: [2.25, -5.75]
-        C4:
-          key:
-            column_net: C4
-            splay: -6
-            stagger: -6.5
-            shift: [4, 0]
+            splay: -5
+            stagger: -3
+            shift: [0.35cy, -0cy]
+            rotate: 270
     mountscrew_c0_top:
       anchor:
         ref.aggregate.parts:
           [matrix_C0_R0, matrix_C1_R0, matrix_C0_R1, matrix_C1_R1]
-        #shift: [-11, 0]
+        shift: [0, 3]
       columns.screw.key.tags: [screw]
     mountscrew_c1_bottom:
       anchor:
@@ -104,17 +103,22 @@ points:
     mountscrew_c3_top:
       anchor:
         ref.aggregate.parts: [matrix_C2_R0, matrix_C3_R0]
-        shift: [0, -8]
+        shift: [0, -3]
       columns.screw.key.tags: [screw]
     mountscrew_c2_bottom:
       anchor:
         ref.aggregate.parts: [matrix_C2_R2, matrix_C3_R2]
-        shift: [0, -8]
+        shift: [0.1, -6]
       columns.screw.key.tags: [screw]
     mountscrew_c4_bottom:
       anchor:
-        ref.aggregate.parts: [thumbs_C3_R3, thumbs_C4_R3]
-        shift: [0, 8]
+        ref.aggregate.parts: [thumbs_C3_R3, thumbs_C2_R3, matrix_C4_R2]
+        shift: [-2, -2]
+      columns.screw.key.tags: [screw]
+    mountscrew_c4_top:
+      anchor: 
+        ref: matrix_C4_R0
+        shift: [0.5cx, -0.5cy]
       columns.screw.key.tags: [screw]
 outlines:
   debug_points:
@@ -136,7 +140,7 @@ outlines:
         shift: [0, 2]
     - what: rectangle
       where: [key]
-      size: [kx, ky]
+      size: [cx, cy]
       operation: stack
     - what: rectangle
       where: [key]
@@ -154,25 +158,7 @@ outlines:
     - what: rectangle
       where: [key]
       bound: true
-      size: [kp, kp]
-  _pcb_plate:
-    - what: outline
-      name: _base
-    - what: polygon
-      operation: add
-      points:
-        - ref: thumbs_C4_R3
-          shift: [0, 0.5kp]
-        - ref: matrix_C4_R2
-          shift: [0, -9]
-        - ref: thumbs_C3_R3
-          shift: [0, 0]
-    - what: outline
-      name: _pcb_plate
-      expand: 2
-    - what: outline
-      name: _switch_cutouts
-      operation: subtract
+      size: [cx, cy]
   _pcb_keyboard:
     - what: outline
       name: _base
@@ -180,20 +166,17 @@ outlines:
       operation: add
       points:
         - ref: matrix_C4_R0
-          shift: [1.65kp, 0.25kp]
-        - ref: thumbs_C4_R3
-          shift: [0.5kp, 0.5kp]
+          shift: [1.65cx, 0.25cy]
         - ref: thumbs_C3_R3
-          shift: [0, 0]
+          shift: [-0.5cx, 0.5cy]
+        - ref: thumbs_C3_R3
+          shift: [0.5cx, 0]
         - ref: matrix_C4_R0
-          shift: [0, 0.25kp]
+          shift: [0, 0.25cy]
     - what: outline
       name: _pcb_keyboard
-      expand: 2
+      expand: 1
       fillet: 0
-  plate:
-    - what: outline
-      name: _pcb_plate
   pcb:
     - what: outline
       name: _pcb_keyboard
@@ -211,16 +194,6 @@ outlines:
       name: pcb
       operation: stack
 pcbs:
-  plate:
-    outlines:
-      main.outline: plate
-    footprints:
-      screws:
-        what: custom/mounting_hole
-        params:
-          drill: 4.3
-          outline: 0.4
-        where: [screw]
   bottom:
     outlines:
       main.outline: pcb
@@ -234,7 +207,7 @@ pcbs:
       main.outline: pcb
     footprints:
       switches:
-        what: custom/mx
+        what: choc
         where:
           - /matrix/
           - /thumbs/
