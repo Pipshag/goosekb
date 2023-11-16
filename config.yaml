@@ -62,7 +62,7 @@ points:
           - key
       anchor:
         ref: matrix_C2_R2
-        shift: [-0.2, -1cy]
+        shift: [0.6cx, -1.2cy]
       rows:
         R3:
           row_net: R3
@@ -78,26 +78,22 @@ points:
           key:
             bind: [5,5,0,0]
             column_net: C2
-            splay: -2
-            stagger: -2.5
-            shift: [-0.1, 0]
+            splay: -8
+            stagger: -2
+            shift: [0.20cy, -0.15cy]
         C3:
           key:
-            bind: [0,0,0,0]
+            bind: [1,0,0,0]
             column_net: C3
-            splay: -4
-            shift: [0.25, -5.35]
-        C4:
-          key:
-            column_net: C4
-            splay: -5
-            stagger: -6
-            shift: [0.5, -0.1]
+            splay: -3
+            stagger: -3
+            shift: [0.35cy, 0.05cy]
+            rotate: 270
     mountscrew_c0_top:
       anchor:
         ref.aggregate.parts:
           [matrix_C0_R0, matrix_C1_R0, matrix_C0_R1, matrix_C1_R1]
-        #shift: [-10, 0]
+        shift: [0, 3]
       columns.screw.key.tags: [screw]
     mountscrew_c1_bottom:
       anchor:
@@ -112,52 +108,47 @@ points:
     mountscrew_c2_bottom:
       anchor:
         ref.aggregate.parts: [matrix_C2_R2, matrix_C3_R2]
-        shift: [0.1, -6]
+        shift: [0.1, -10]
       columns.screw.key.tags: [screw]
     mountscrew_c4_bottom:
       anchor:
         ref.aggregate.parts: [thumbs_C3_R3, thumbs_C2_R3, matrix_C4_R2]
-        shift: [-2, -2]
-      columns.screw.key.tags: [screw]
-    mountscrew_c4_top:
-      anchor: 
-        ref: matrix_C4_R0
-        shift: [0.5cx, -0.5cy]
+        shift: [2, -2.8]
       columns.screw.key.tags: [screw]
 outlines:
-  debug_points:
-    - what: rectangle
-      where: true
-      size: [6, 0.01]
-    - what: rectangle
-      where: true
-      size: [0.01, 4]
-    - what: circle
-      where: true
-      radius: 0.4
-      adjust:
-        shift: [3, 0]
-    - what: circle
-      where: true
-      radius: 0.4
-      adjust:
-        shift: [0, 2]
-    - what: rectangle
-      where: [key]
-      size: [cx, cy]
-      operation: stack
-    - what: rectangle
-      where: [key]
-      size: [kcow, kcoh]
-      operation: stack
-    - what: circle
-      where: [screw]
-      radius: 2
-      operation: stack
-  _switch_cutouts:
-    - what: rectangle
-      where: [key]
-      size: [kcow, kcoh]
+  # debug_points:
+  #   - what: rectangle
+  #     where: true
+  #     size: [6, 0.01]
+  #   - what: rectangle
+  #     where: true
+  #     size: [0.01, 4]
+  #   - what: circle
+  #     where: true
+  #     radius: 0.4
+  #     adjust:
+  #       shift: [3, 0]
+  #   - what: circle
+  #     where: true
+  #     radius: 0.4
+  #     adjust:
+  #       shift: [0, 2]
+  #   - what: rectangle
+  #     where: [key]
+  #     size: [cx, cy]
+  #     operation: stack
+  #   - what: rectangle
+  #     where: [key]
+  #     size: [kcow, kcoh]
+  #     operation: stack
+  #   - what: circle
+  #     where: [screw]
+  #     radius: 2
+  #     operation: stack
+  # _switch_cutouts:
+  #   - what: rectangle
+  #     where: [key]
+  #     size: [kcow, kcoh]
   _base:
     - what: rectangle
       where: [key]
@@ -171,36 +162,34 @@ outlines:
       points:
         - ref: matrix_C4_R0
           shift: [1.65cx, 0.25cy]
-        - ref: thumbs_C4_R3
-          shift: [0.5cx, 0.5cy]
         - ref: thumbs_C3_R3
-          shift: [-0.5cx, 0.5cy]
+          shift: [-0.5cx, 0.56cy]
         - ref: thumbs_C3_R3
           shift: [0.5cx, 0]
         - ref: matrix_C4_R0
           shift: [0, 0.25cy]
     - what: outline
       name: _pcb_keyboard
-      expand: 1
-      fillet: 0
+      expand: 2
+      fillet: 1
   pcb:
     - what: outline
       name: _pcb_keyboard
-  preview:
-    - what: outline
-      name: debug_points
-    - what: rectangle
-      where: [key]
-      size: [keycw, keych]
-      operation: stack
-    - what: outline
-      name: _switch_cutouts
-      operation: stack
-    - what: outline
-      name: pcb
-      operation: stack
+  # preview:
+  #   - what: outline
+  #     name: debug_points
+  #   - what: rectangle
+  #     where: [key]
+  #     size: [keycw, keych]
+  #     operation: stack
+  #   - what: outline
+  #     name: _switch_cutouts
+  #     operation: stack
+  #   - what: outline
+  #     name: pcb
+  #     operation: stack
 pcbs:
-  bottom:
+  bottom_choc:
     outlines:
       main.outline: pcb
     footprints:
@@ -208,7 +197,7 @@ pcbs:
         what: custom/mounting_hole
         params:
         where: [screw]
-  goose:
+  goose_choc:
     outlines:
       main.outline: pcb
     footprints:
@@ -275,7 +264,7 @@ pcbs:
           D10: "R2"
         where:
           ref: matrix_C4_R0
-          shift: [22, -4]
+          shift: [20.5, -4.25]
       enc_wheel:
         what: rotary
         params:
@@ -286,8 +275,8 @@ pcbs:
           C: "GND"
         where:
           ref: matrix_C4_R2
-          shift: [23, -1]
-          rotate: 270
+          shift: [21, -1]
+          rotate: 268
       battery_pads:
         what: custom/pads
         params:
@@ -300,7 +289,7 @@ pcbs:
           space: 1.25
         where:
           ref: matrix_C4_R1
-          shift: [15, 1]
+          shift: [13.5, 0.3]
           rotate: 0
       screws:
         what: custom/mounting_hole
@@ -310,9 +299,9 @@ pcbs:
         what: custom/text
         params:
           side: "B"
-          text: "gooses v0.9b"
+          text: "gooses v0.91c"
         where:
-          ref: thumbs_C4_R3
+          ref: thumbs_C3_R3
           shift: [8, 0]
           rotate: 90
       # txt_order_number:
@@ -330,7 +319,7 @@ pcbs:
           reverse: false
         where:
           ref: matrix_C4_R0
-          shift: [22, -15.5]
+          shift: [21, -15.8]
       txt_this_side_down:
         what: custom/text
         params:
@@ -339,4 +328,5 @@ pcbs:
           reverse: false
         where:
           ref: matrix_C4_R0
-          shift: [22, -15.5]
+          shift: [21, -15.8]
+

@@ -8,3 +8,7 @@
 	cd zmk/app/
 	west build -p -d ../../fw/right -b seeeduino_xiao_ble -- -DSHIELD=goose_right -DZMK_CONFIG="$(pwd)/../../../config"
 )
+#(
+#	cd zmk/app/
+#	west build -p -d ../../fw/reset -b seeeduino_xiao_ble -- -DSHIELD=settings_reset -DZMK_CONFIG="$(pwd)/../../../config"
+#)

@@ -11,3 +11,5 @@ firmware/fw/right/zephyr/misc/
 !firmware/fw/**/*.uf2
 # !firmware/fw/left/zephyr/zmk.uf2
 # !firmware/fw/right/zephyr/zmk.uf2
+
+firmware/fw/

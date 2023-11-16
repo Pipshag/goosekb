@@ -1,4 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "Goose")(type "KiCad")(uri "${KIPRJMOD}/Goose.pretty")(options "")(descr ""))
-)

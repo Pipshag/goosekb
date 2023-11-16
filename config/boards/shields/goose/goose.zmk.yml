@@ -1,10 +1,9 @@
 file_format: "1"
 id: goose
-name: Flying Goose
+name: Goose Choc
 type: shield
 url: https://github.com/Pipshag/goosekb
-requires:
-  - seeeduino_xiao_ble
+requires: [seeeduino_xiao_ble]
 features:
   - keys
   - encoder
