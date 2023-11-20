@@ -18,23 +18,10 @@
         >;
     };
 
-    kscan0: kscan_0 {
-        compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
-
-        diode-direction = "col2row";
-        row-gpios
-          = <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-          , <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-          , <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-          , <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-          ;
-    };
-
     left_encoder: left_encoder {
         compatible = "alps,ec11";
         label = "LEFT_ENCODER";
-        steps = <48>;
+        steps = <80>;
         status = "disabled";
 
         a-gpios = <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -44,7 +31,7 @@
     right_encoder: right_encoder {
         compatible = "alps,ec11";
         label = "RIGHT_ENCODER";
-        steps = <48>;
+        steps = <80>;
         status = "disabled";
 
         a-gpios = <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -54,7 +41,7 @@
     sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&left_encoder &right_encoder>;
-        triggers-per-rotation = <12>;
+        triggers-per-rotation = <24>;
     };
 
 };
