@@ -2,7 +2,8 @@ if SHIELD_GOOSE_LEFT
 
 config ZMK_KEYBOARD_NAME
     default "Chocolate Goose" 
-
+config USB_DEVICE_MANUFACTURER
+    default "Pipshag"
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
