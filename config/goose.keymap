@@ -155,10 +155,10 @@
 
         kb_sett {
             bindings = <
-&bt BT_CLR    &bt BT_NXT  &trans    &trans    &sys_reset   &sys_reset   &trans  &trans  &bt BT_NXT  &bt BT_CLR
-&out OUT_TOG  &trans      &trans    &trans    &bootloader  &bootloader  &trans  &trans  &trans      &out OUT_TOG
-&trans        &mkp MB1    &mkp MB2  &mkp MB4  &mkp MB5     &trans       &trans  &trans  &trans      &trans
-                          &trans    &trans    &trans       &trans       &trans  &trans
+&bt BT_CLR    &bt BT_NXT  &trans  &trans  &sys_reset   &sys_reset   &trans  &trans  &bt BT_NXT  &bt BT_CLR
+&out OUT_TOG  &trans      &trans  &trans  &bootloader  &bootloader  &trans  &trans  &trans      &out OUT_TOG
+&trans        &none       &none   &none   &none        &trans       &trans  &trans  &trans      &trans
+                          &trans  &trans  &trans       &trans       &trans  &trans
             >;
         };
 
