@@ -133,9 +133,9 @@
 
         nav_sys {
             bindings = <
-&none      &kp LS(TAB)  &kp TAB    &kp LS(LC(TAB))  &kp LC(TAB)    &kp PG_UP  &kp H     &kp J     &kp K   &kp L
-&kp LC(A)  &none        &none      &kp TAB          &none          &kp PG_DN  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT
-&kp LC(Z)  &kp LC(X)    &kp LC(C)  &kp LC(V)        &kp LS(LC(V))  &none      &none     &none     &none   &none
+&none      &kp LS(TAB)  &kp TAB    &kp LS(LC(TAB))  &kp LC(TAB)    &kp PG_UP  &kp H     &kp J     &kp K     &kp L
+&kp LC(A)  &none        &none      &kp TAB          &none          &kp PG_DN  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT
+&kp LC(Z)  &kp LC(X)    &kp LC(C)  &kp LC(V)        &kp LS(LC(V))  &none      &none     &none     &kp HOME  &kp END
                         &trans     &trans           &tog 4         &trans     &trans    &trans
             >;
 
