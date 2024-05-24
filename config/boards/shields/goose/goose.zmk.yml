@@ -1,6 +1,6 @@
 file_format: "1"
 id: goose
-name: Goose Choc
+name: Goose Cherry
 type: shield
 url: https://github.com/Pipshag/goosekb
 requires: [seeeduino_xiao_ble]
@@ -10,3 +10,4 @@ features:
 siblings:
   - goose_left
   - goose_right
+
