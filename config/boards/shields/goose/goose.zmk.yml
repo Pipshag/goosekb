@@ -1,12 +1,13 @@
 file_format: "1"
 id: goose
-name: Goose Choc
+name: Goose Chocolate
 type: shield
 url: https://github.com/Pipshag/goosekb
 requires: [seeeduino_xiao_ble]
 features:
   - keys
   - encoder
+  - studio
 siblings:
   - goose_left
   - goose_right

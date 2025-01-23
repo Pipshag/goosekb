@@ -33,11 +33,6 @@
         >;
     };
 
-    /* &default_layout { */
-    /*   kscan = <&kscan>; */
-    /*   transform = <&default_transform>; */
-    /* }; */
-
     left_encoder: left_encoder {
         compatible = "alps,ec11";
         steps = <80>;

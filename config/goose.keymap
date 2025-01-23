@@ -2,11 +2,11 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-#define QUICK_TAP_MS 175
-#define TAPPING_TERM_MS 175
-#define SLOW_TAPPING_TERM_MS 200
+#define QUICK_TAP_MS 125
+#define TAPPING_TERM_MS 150
+#define SLOW_TAPPING_TERM_MS 175
 #define IDLE_TIMEOUT_MS 5000
-#define REQ_IDLE_MS 125
+#define REQ_IDLE_MS 100
 
 &lt {
     // Layer toggle
@@ -100,7 +100,7 @@
         };
 
         num_fun {
-            display-name = "Numbers and functions";
+            display-name = "Numbers";
             bindings = <
 &key_repeat  &kp N7  &kp N8     &kp N9  &none      &kp C_PREV  &kp F7  &kp F8  &kp F9  &kp F12
 &none        &kp N4  &kp N5     &kp N6  &none      &kp C_PP    &kp F4  &kp F5  &kp F6  &none
@@ -112,7 +112,7 @@
         };
 
         sym_uti {
-            display-name = "Symbols and utilities";
+            display-name = "Symbols";
             bindings = <
 &kp PERCENT  &kp CARET      &kp DOLLAR       &kp RA(N5)  &cln_scln_td    &none   &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp AT_SIGN    &kp HASH
 &kp FSLH     &kp ASTERISK   &kp MINUS        &kp PLUS    &kp PIPE        &none   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LESS_THAN  &kp GREATER_THAN
@@ -124,7 +124,7 @@
         };
 
         nav_sys {
-            display-name = "Navigation and system keys";
+            display-name = "System keys";
             bindings = <
 &none      &kp LS(TAB)  &kp TAB    &kp LS(LC(TAB))  &kp LC(TAB)    &kp PG_UP      &kp H          &kp J     &kp K   &kp L
 &kp LC(A)  &none        &none      &kp TAB          &none          &kp PG_DN      &kp LEFT       &kp DOWN  &kp UP  &kp RIGHT
@@ -148,12 +148,12 @@
         };
 
         kb_sett {
-            display-name = "Keyboard settings";
+            display-name = "Settings";
             bindings = <
 &kp LA(TAB)  &none   &kp LG(LC(LEFT_ARROW))  &kp LG(RC(RIGHT_ARROW))  &sys_reset   &sys_reset          &trans        &trans            &none          &none
 &none        &trans  &kp LG(PG_UP)           &kp LG(PG_DN)            &bootloader  &kp LG(LEFT_ARROW)  &kp LG(DOWN)  &kp LG(UP_ARROW)  &kp LG(RIGHT)  &none
 &kp LG(Z)    &none   &none                   &none                    &sys_reset   &sys_reset          &trans        &trans            &trans         &trans
-                     &trans                  &none                    &bootloader  &bootloader         &none         &none
+                     &trans                  &none                    &bootloader  &bootloader         &none         &studio_unlock
             >;
 
           extra1 {
