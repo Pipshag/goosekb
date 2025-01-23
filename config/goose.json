@@ -53,7 +53,6 @@
       "name": "left_encoder",
       "identifier": "left_encoder",
       "compatible": "alps,ec11",
-      "label": "LEFT_ENCODER",
       "enabled": false
     },
     {
@@ -61,8 +60,8 @@
       "name": "right_encoder",
       "identifier": "right_encoder",
       "compatible": "alps,ec11",
-      "label": "RIGHT_ENCODER",
       "enabled": false
     }
   ]
 }
+
