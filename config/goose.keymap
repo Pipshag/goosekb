@@ -1,11 +1,11 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#define QUICK_TAP_MS 125
-#define TAPPING_TERM_MS 150
+#define QUICK_TAP_MS 200
+#define TAPPING_TERM_MS 200
 #define SLOW_TAPPING_TERM_MS 175
 #define IDLE_TIMEOUT_MS 5000
-#define REQ_IDLE_MS 100
+#define REQ_IDLE_MS 50
 
 &lt {
     // Layer toggle
