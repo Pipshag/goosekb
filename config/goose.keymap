@@ -4,13 +4,13 @@
 // Home row mods settings
 
 // Speed without triggering modifier
-#define TAPPING_RESOLUTION 150
+#define TAPPING_RESOLUTION 125
 
 // Hold time for tap-preferred behavior
 #define HOLD_TYPE "tap-preferred"
 
 // Time to wait after typing before mods are available
-#define STREAK_DECAY (TAPPING_RESOLUTION + 150)
+#define STREAK_DECAY (TAPPING_RESOLUTION + 100)
 
 // Time to auto-repeat key
 #define REPEAT_DECAY (TAPPING_RESOLUTION + 150)
@@ -19,19 +19,13 @@
 #define LAYER_HOLD_TIME (TAPPING_RESOLUTION + 50)
 
 // Time to trigger home row mods
-#define HRM_HOLD_TIME (TAPPING_RESOLUTION + 90)
+#define HRM_HOLD_TIME (TAPPING_RESOLUTION + 20)
 
 // Time to trigger tap dance
 #define TAP_DANCE_TIME (TAPPING_RESOLUTION + 200)
 
 // Idle time before sticky keys are released
 #define IDLE_TIMEOUT_MS 5000
-
-
-/* #define QUICK_TAP_MS 200 */
-/* #define TAPPING_TERM_MS 150 */
-/* #define SLOW_TAPPING_TERM_MS 175 */
-/* #define REQ_IDLE_MS 50 */
 
 &lt {
     // Layer toggle
@@ -60,7 +54,7 @@
 };
 / {
     behaviors {
-        hrm: homerow_mods_left {
+        hrm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             flavor = HOLD_TYPE;
 
