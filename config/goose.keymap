@@ -1,32 +1,57 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#define QUICK_TAP_MS 125
-#define TAPPING_TERM_MS 150
-#define SLOW_TAPPING_TERM_MS 200
+// Home row mods settings
+// Speed without triggering modifier
+
+#define TAPPING_RESOLUTION 125
+
+// Hold time for tap-preferred behavior
+
+#define HOLD_TYPE "tap-preferred"
+
+// Time to wait after typing before mods are available
+
+#define STREAK_DECAY (TAPPING_RESOLUTION + 75)
+
+// Time to auto-repeat key
+
+#define REPEAT_DECAY (TAPPING_RESOLUTION + 150)
+
+// Time to trigger layer
+
+#define LAYER_HOLD_TIME (TAPPING_RESOLUTION + 50)
+
+// Time to trigger home row mods
+
+#define HRM_HOLD_TIME (TAPPING_RESOLUTION + 25)
+
+// Time to trigger tap dance
+
+#define TAP_DANCE_TIME (TAPPING_RESOLUTION + 75)
+
+
+// Idle time before sticky keys are released
+
 #define IDLE_TIMEOUT_MS 5000
-#define REQ_IDLE_MS 100
+
+// Layer toggle
 
 &lt {
-    // Layer toggle
-
-    flavor = "tap-preferred";
-    tapping-term-ms = <TAPPING_TERM_MS>;
-    quick-tap-ms = <QUICK_TAP_MS>;
+    flavor =
+    HOLD_TYPE;
+    tapping-term-ms = <LAYER_HOLD_TIME>;
+    quick-tap-ms = <REPEAT_DECAY>;
 };
 
-&sk {
-    // Sticky keys settings, One Shot Keys [QMK]
+// Sticky keys settings, One Shot Keys [QMK]
 
+&sk {
     release-after-ms = <IDLE_TIMEOUT_MS>;
     quick-release;
 };
+
+// Caps word
 
 &caps_word {
     // Allow caps word to continue even when minus or underscore are pressed.
@@ -44,32 +69,17 @@
 
 / {
     behaviors {
-        hml: homerow_mods_left {
+        hm: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_LEFT_HAND";
+            flavor =
+            HOLD_TYPE;
+            #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
 
-            #binding-cells = <2>;
-            tapping-term-ms = <TAPPING_TERM_MS>;
-            quick-tap-ms = <QUICK_TAP_MS>;
-            flavor = "balanced";
-            require-prior-idle-ms = <REQ_IDLE_MS>;
-            hold-trigger-key-positions = <5 6 7 8 9 19 18 17 16 15 34 25 26 35 27 28 29 37 36>;
-            hold-trigger-on-release;
-        };
-
-        hmr: homerow_mods_right {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_RIGHT_HAND";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <TAPPING_TERM_MS>;
-            quick-tap-ms = <QUICK_TAP_MS>;
-            require-prior-idle-ms = <REQ_IDLE_MS>;
-            hold-trigger-key-positions = <0 1 2 3 4 14 13 12 11 10 11 12 13 14 20 21 22 23 24 30 31 32 33>;
-            flavor = "balanced";
-            hold-trigger-on-release;
+            tapping-term-ms = <HRM_HOLD_TIME>;
+            quick-tap-ms = <REPEAT_DECAY>;
+            require-prior-idle-ms = <STREAK_DECAY>;
         };
 
         ss_cw: shift_capsword {
@@ -78,14 +88,84 @@
             #binding-cells = <0>;
             bindings = <&sk LEFT_SHIFT>, <&caps_word>;
 
-            tapping-term-ms = <SLOW_TAPPING_TERM_MS>;
+            tapping-term-ms = <TAP_DANCE_TIME>;
         };
 
         cln_scln_td: cln_scln_td {
             compatible = "zmk,behavior-tap-dance";
-            label = "CLN_SCLN_TD";
             #binding-cells = <0>;
             bindings = <&kp COLON>, <&kp SEMICOLON>;
+
+            tapping-term-ms = <TAP_DANCE_TIME>;
+        };
+
+        comma_less: comma_less {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp LESS_THAN>;
+
+            tapping-term-ms = <TAP_DANCE_TIME>;
+        };
+
+        question: question {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp SLASH>, <&kp QUESTION>;
+
+            tapping-term-ms = <TAP_DANCE_TIME>;
+        };
+
+        dot_greater: dot_greater {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp GREATER_THAN>;
+
+            tapping-term-ms = <TAP_DANCE_TIME>;
+        };
+
+        quotes: quotes {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp SINGLE_QUOTE>, <&kp DOUBLE_QUOTES>;
+
+            tapping-term-ms = <TAP_DANCE_TIME>;
+        };
+
+        comma_less: comma_less {
+            compatible = "zmk,behavior-tap-dance";
+            label = "COMMA_LESS";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp LESS_THAN>;
+        };
+
+        dot_greater: dot_greater {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOT_GREATER";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp GREATER_THAN>;
+        };
+
+        quotes: quotes {
+            compatible = "zmk,behavior-tap-dance";
+            label = "QUOTES";
+            #binding-cells = <0>;
+            bindings = <&kp SINGLE_QUOTE>, <&kp DOUBLE_QUOTES>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        hyprland-menu {
+            bindings = <&kp LG(RETURN)>;
+            key-positions = <10 12>;
+            require-prior-idle-ms = <150>;
+            layers = <0>;
+        };
+
+        sticky-ralt {
+            bindings = <&sk RALT>;
+            key-positions = <19 17>;
         };
     };
 
@@ -93,30 +173,33 @@
         compatible = "zmk,keymap";
 
         base {
+            display-name = "Base";
             bindings = <
-&kp Q            &kp W            &kp F                &kp P              &kp G   &kp J      &kp L               &kp U                 &kp Y             &kp APOSTROPHE
-&hml LEFT_GUI A  &hml LEFT_ALT R  &hml LEFT_CONTROL S  &hml LEFT_SHIFT T  &kp D   &kp H      &hmr RIGHT_SHIFT N  &hmr RIGHT_CONTROL E  &hmr RIGHT_ALT I  &hmr RIGHT_GUI O
-&kp Z            &kp X            &kp C                &kp V              &kp B   &kp K      &kp M               &kp COMMA             &kp PERIOD        &kp SLASH
-                 &trans           &kp ESCAPE           &lt 3 SPACE        &ss_cw  &kp ENTER  &lt 1 BACKSPACE     &lt 2 DELETE          &kp RIGHT_ALT
+&kp Q           &kp W            &kp F               &kp P             &kp G   &kp J      &kp L              &kp U                &kp Y            &quotes
+&hm LEFT_GUI A  &hm LEFT_ALT R   &hm LEFT_CONTROL S  &hm LEFT_SHIFT T  &kp D   &kp H      &hm RIGHT_SHIFT N  &hm RIGHT_CONTROL E  &hm RIGHT_ALT I  &hm RIGHT_GUI O
+&kp Z           &kp X            &kp C               &kp V             &kp B   &kp K      &kp M              &comma_less            &dot_greater       &question
+                &lt 5 LG(SLASH)  &kp ESC             &lt 3 SPACE       &ss_cw  &kp ENTER  &lt 1 BACKSPACE    &lt 2 DELETE         &kp RIGHT_ALT
             >;
 
             sensor-bindings =
                 <&inc_dec_kp C_VOL_UP C_VOLUME_DOWN>,
-                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
+                <&inc_dec_kp PG_UP PAGE_DOWN>;
         };
 
         num_fun {
+            display-name = "Numbers";
             bindings = <
-&none  &kp N7    &kp N8     &kp N9  &none      &kp C_PREV  &kp F7  &kp F8  &kp F9  &kp F12
-&none  &kp N4    &kp N5     &kp N6  &none      &kp C_PP    &kp F4  &kp F5  &kp F6  &none
-&none  &kp N1    &kp N2     &kp N3  &kp DOT    &kp C_NEXT  &kp F1  &kp F2  &kp F3  &none
-       &kp PLUS  &kp EQUAL  &kp N0  &kp MINUS  &trans      &trans  &trans  &trans
+&key_repeat  &kp N7  &kp N8     &kp N9  &none      &kp C_PREV  &kp F7  &kp F8  &kp F9  &kp F12
+&none        &kp N4  &kp N5     &kp N6  &none      &kp C_PP    &kp F4  &kp F5  &kp F6  &none
+&none        &kp N1  &kp N2     &kp N3  &kp DOT    &kp C_NEXT  &kp F1  &kp F2  &kp F3  &none
+             &trans  &kp EQUAL  &kp N0  &kp MINUS  &trans      &trans  &trans  &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp K_REDO K_UNDO>;
+            sensor-bindings = <&inc_dec_kp LC(Z) LC(Y)>;
         };
 
         sym_uti {
+            display-name = "Symbols";
             bindings = <
 &kp PERCENT  &kp CARET      &kp DOLLAR       &kp RA(N5)  &cln_scln_td    &none   &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp AT_SIGN    &kp HASH
 &kp FSLH     &kp ASTERISK   &kp MINUS        &kp PLUS    &kp PIPE        &none   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LESS_THAN  &kp GREATER_THAN
@@ -124,27 +207,41 @@
              &trans         &trans           &trans      &trans          &trans  &trans                &trans                 &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp LC(RIGHT) LC(LEFT)>;
+            sensor-bindings = <&inc_dec_kp LC(RIGHT_ARROW) LC(LEFT_ARROW)>;
         };
 
         nav_sys {
+            display-name = "System keys";
             bindings = <
-&none      &kp LS(TAB)  &kp TAB     &kp LC(LS(TAB))  &kp LC(TAB)    &kp PG_UP      &kp H          &kp J       &kp K        &kp L
-&kp LC(A)  &none        &none       &none            &none          &kp PG_DN      &kp LEFT       &kp DOWN    &kp UP       &kp RIGHT
-&kp LC(Z)  &kp LC(X)    &kp LC(C)   &kp LC(V)        &kp LS(LC(V))  &kp LG(LS(K))  &kp LG(LS(S))  &none       &none        &none
-           &bootloader  &sys_reset  &trans           &tog 4         &trans         &trans         &sys_reset  &bootloader
+&none      &kp LS(TAB)  &kp TAB    &kp LS(LC(TAB))  &kp LC(TAB)    &kp PG_UP      &kp H          &kp J     &kp K   &kp L
+&kp LC(A)  &none        &none      &kp TAB          &none          &kp PG_DN      &kp LEFT       &kp DOWN  &kp UP  &kp RIGHT
+&kp LC(Z)  &kp LC(X)    &kp LC(C)  &kp LC(V)        &kp LS(LC(V))  &kp LC(LG(K))  &kp LS(LG(S))  &none     &none   &none
+           &trans       &trans     &trans           &tog 4         &trans         &trans         &trans    &trans
             >;
+
+            sensor-bindings =
+                <&inc_dec_kp K_FORWARD C_REWIND>,
+                <&inc_dec_kp C_FAST_FORWARD C_REWIND>;
         };
 
         flat {
+            display-name = "Flat keyboard";
             bindings = <
-&kp Q  &kp W    &kp F    &kp P      &kp G      &kp J      &kp L     &kp U      &kp Y    &kp APOSTROPHE
-&kp A  &kp R    &kp S    &kp T      &kp D      &kp H      &kp N     &kp E      &kp I    &kp O
-&kp Z  &kp X    &kp C    &kp V      &kp B      &kp K      &kp M     &kp COMMA  &kp DOT  &kp FSLH
-       &kp TAB  &kp ESC  &kp SPACE  &kp LSHFT  &kp ENTER  &kp BSPC  &kp TAB    &tog 4
+&kp Q  &kp W   &kp F    &kp P      &kp G      &kp J      &kp L          &kp U       &kp Y    &kp LEFT_ALT
+&kp A  &kp R   &kp S    &kp T      &kp D      &kp H      &kp N          &kp E       &kp I    &kp O
+&kp Z  &kp X   &kp C    &kp V      &kp B      &kp K      &kp M          &kp COMMA   &kp DOT  &kp FSLH
+       &trans  &kp ESC  &kp SPACE  &kp LSHFT  &kp ENTER  &kp BACKSPACE  &kp DELETE  &tog 4
             >;
         };
 
-        sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+        kb_sett {
+            display-name = "Settings";
+            bindings = <
+&none              &none           &none                      &none              &none        &none        &none  &none  &none  &none
+&kp LS(LC(LG(E)))  &kp LG(RETURN)  &kp LS(LC(LG(BACKSPACE)))  &kp LS(LC(LG(H)))  &none        &none        &none  &none  &none  &none
+&none              &none           &none                      &none              &sys_reset   &sys_reset   &none  &none  &none  &none
+                   &none           &none                      &none              &bootloader  &bootloader  &none  &none  &none
+            >;
+        };
     };
 };
