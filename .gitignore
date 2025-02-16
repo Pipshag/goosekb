@@ -9,7 +9,10 @@ firmware/fw/**/*.*
 firmware/fw/left/zephyr/misc/
 firmware/fw/right/zephyr/misc/
 !firmware/fw/**/*.uf2
+firmware/.venv
 # !firmware/fw/left/zephyr/zmk.uf2
 # !firmware/fw/right/zephyr/zmk.uf2
 
 firmware/fw/
+
+.zmk/
