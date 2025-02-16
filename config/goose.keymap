@@ -19,7 +19,7 @@
 #define LAYER_HOLD_TIME (TAPPING_RESOLUTION + 50)
 
 // Time to trigger home row mods
-#define HRM_HOLD_TIME (TAPPING_RESOLUTION + 50)
+#define HRM_HOLD_TIME (TAPPING_RESOLUTION + 25)
 
 // Time to trigger tap dance
 #define TAP_DANCE_TIME (TAPPING_RESOLUTION + 200)
@@ -54,6 +54,38 @@
 };
 / {
     behaviors {
+        hml: homerow_mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_LEFT_HAND";
+            flavor = HOLD_TYPE;
+
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            tapping-term-ms = <HRM_HOLD_TIME>;
+            quick-tap-ms = <REPEAT_DECAY>;
+            require-prior-idle-ms = <STREAK_DECAY>;
+
+            hold-trigger-key-positions = <5 6 7 8 9 19 18 17 16 15 34 25 26 35 27 28 29 37 36>;
+            hold-trigger-on-release;
+        };
+
+        hmr: homerow_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_RIGHT_HAND";
+            flavor = HOLD_TYPE;
+
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            tapping-term-ms = <HRM_HOLD_TIME>;
+            quick-tap-ms = <REPEAT_DECAY>;
+            require-prior-idle-ms = <STREAK_DECAY>;
+
+            hold-trigger-key-positions = <0 1 2 3 4 14 13 12 11 10 11 12 13 14 20 21 22 23 24 30 31 32 33>;
+            hold-trigger-on-release;
+        };
+
         hrm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             flavor = HOLD_TYPE;
@@ -88,7 +120,7 @@
             display-name = "Base";
             bindings = <
 &kp Q            &kp W            &kp F                &kp P              &kp G   &kp J      &kp L               &kp U                 &kp Y             &kp APOSTROPHE
-&hrm LEFT_GUI A  &hrm LEFT_ALT R  &hrm LEFT_CONTROL S  &hrm LEFT_SHIFT T  &kp D   &kp H      &hrm RIGHT_SHIFT N  &hrm RIGHT_CONTROL E  &hrm RIGHT_ALT I  &hrm RIGHT_GUI O
+&hml LEFT_GUI A  &hml LEFT_ALT R  &hml LEFT_CONTROL S  &hml LEFT_SHIFT T  &kp D   &kp H      &hmr RIGHT_SHIFT N  &hmr RIGHT_CONTROL E  &hmr RIGHT_ALT I  &hmr RIGHT_GUI O
 &kp Z            &kp X            &kp C                &kp V              &kp B   &kp K      &kp M               &kp COMMA             &kp PERIOD        &kp SLASH
                                   &lt 5 ESC            &lt 3 SPACE        &ss_cw  &kp ENTER  &lt 1 BACKSPACE     &lt 2 DELETE
             >;
