@@ -19,7 +19,7 @@
 #define LAYER_HOLD_TIME (TAPPING_RESOLUTION + 50)
 
 // Time to trigger home row mods
-#define HRM_HOLD_TIME (TAPPING_RESOLUTION + 20)
+#define HRM_HOLD_TIME (TAPPING_RESOLUTION + 50)
 
 // Time to trigger tap dance
 #define TAP_DANCE_TIME (TAPPING_RESOLUTION + 200)
