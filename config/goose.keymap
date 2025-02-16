@@ -101,6 +101,7 @@
 
         comma_less: comma_less {
             compatible = "zmk,behavior-tap-dance";
+            label = "COMMA_LESS";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp LESS_THAN>;
 
@@ -130,43 +131,6 @@
 
             tapping-term-ms = <TAP_DANCE_TIME>;
         };
-
-        comma_less: comma_less {
-            compatible = "zmk,behavior-tap-dance";
-            label = "COMMA_LESS";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp LESS_THAN>;
-        };
-
-        dot_greater: dot_greater {
-            compatible = "zmk,behavior-tap-dance";
-            label = "DOT_GREATER";
-            #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp GREATER_THAN>;
-        };
-
-        quotes: quotes {
-            compatible = "zmk,behavior-tap-dance";
-            label = "QUOTES";
-            #binding-cells = <0>;
-            bindings = <&kp SINGLE_QUOTE>, <&kp DOUBLE_QUOTES>;
-        };
-    };
-
-    combos {
-        compatible = "zmk,combos";
-
-        hyprland-menu {
-            bindings = <&kp LG(RETURN)>;
-            key-positions = <10 12>;
-            require-prior-idle-ms = <150>;
-            layers = <0>;
-        };
-
-        sticky-ralt {
-            bindings = <&sk RALT>;
-            key-positions = <19 17>;
-        };
     };
 
     keymap {
@@ -180,13 +144,10 @@
 &kp Z           &kp X            &kp C               &kp V             &kp B   &kp K      &kp M              &comma_less            &dot_greater       &question
                 &lt 5 LG(SLASH)  &kp ESC             &lt 3 SPACE       &ss_cw  &kp ENTER  &lt 1 BACKSPACE    &lt 2 DELETE         &kp RIGHT_ALT
             >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOLUME_DOWN>,
-                <&inc_dec_kp PG_UP PAGE_DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        num_fun {
+              num_fun {
             display-name = "Numbers";
             bindings = <
 &key_repeat  &kp N7  &kp N8     &kp N9  &none      &kp C_PREV  &kp F7  &kp F8  &kp F9  &kp F12
@@ -243,5 +204,7 @@
                    &none           &none                      &none              &bootloader  &bootloader  &none  &none  &none
             >;
         };
+
+
     };
 };
