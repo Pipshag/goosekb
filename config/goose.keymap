@@ -30,7 +30,6 @@
 
 #define TAP_DANCE_TIME (TAPPING_RESOLUTION + 75)
 
-
 // Idle time before sticky keys are released
 
 #define IDLE_TIMEOUT_MS 5000
@@ -141,13 +140,14 @@
             bindings = <
 &kp Q           &kp W            &kp F               &kp P             &kp G   &kp J      &kp L              &kp U                &kp Y            &quotes
 &hm LEFT_GUI A  &hm LEFT_ALT R   &hm LEFT_CONTROL S  &hm LEFT_SHIFT T  &kp D   &kp H      &hm RIGHT_SHIFT N  &hm RIGHT_CONTROL E  &hm RIGHT_ALT I  &hm RIGHT_GUI O
-&kp Z           &kp X            &kp C               &kp V             &kp B   &kp K      &kp M              &comma_less            &dot_greater       &question
+&kp Z           &kp X            &kp C               &kp V             &kp B   &kp K      &kp M              &comma_less          &dot_greater     &question
                 &lt 5 LG(SLASH)  &kp ESC             &lt 3 SPACE       &ss_cw  &kp ENTER  &lt 1 BACKSPACE    &lt 2 DELETE         &kp RIGHT_ALT
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+
+            sensor-bindings = <&inc_dec_kp A B>;
         };
 
-              num_fun {
+        num_fun {
             display-name = "Numbers";
             bindings = <
 &key_repeat  &kp N7  &kp N8     &kp N9  &none      &kp C_PREV  &kp F7  &kp F8  &kp F9  &kp F12
@@ -204,7 +204,5 @@
                    &none           &none                      &none              &bootloader  &bootloader  &none  &none  &none
             >;
         };
-
-
     };
 };
