@@ -5,7 +5,7 @@
 // Home row mods settings
 
 // Speed without triggering modifier
-#define TAPPING_RESOLUTION 125
+#define TAPPING_RESOLUTION 100
 
 // Hold time for tap-preferred behavior
 #define HOLD_TYPE "tap-preferred"
@@ -14,19 +14,19 @@
 #define STREAK_DECAY (TAPPING_RESOLUTION + 50)
 
 // Time to auto-repeat key
-#define REPEAT_DECAY (TAPPING_RESOLUTION + 150)
+#define REPEAT_DECAY (TAPPING_RESOLUTION + 100)
 
 // Time to trigger layer
-#define LAYER_HOLD_TIME (TAPPING_RESOLUTION + 50)
+#define LAYER_HOLD_TIME (TAPPING_RESOLUTION + 25)
 
 // Time to trigger home row mods
-#define HRM_HOLD_TIME (TAPPING_RESOLUTION + 25)
+#define HRM_HOLD_TIME (TAPPING_RESOLUTION + 50)
 
 // Time to trigger tap dance
-#define TAP_DANCE_TIME (TAPPING_RESOLUTION + 75)
+#define TAP_DANCE_TIME (TAPPING_RESOLUTION + 100)
 
 // Idle time before sticky keys are released
-#define IDLE_TIMEOUT_MS 5000
+#define IDLE_TIMEOUT_MS 7500
 
 &lt {
     // Layer toggle
