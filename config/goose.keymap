@@ -11,13 +11,13 @@
 #define HOLD_TYPE "tap-preferred"
 
 // Time to wait after typing before mods are available
-#define STREAK_DECAY (TAPPING_RESOLUTION + 50)
+#define STREAK_DECAY (TAPPING_RESOLUTION + 100)
 
 // Time to auto-repeat key
 #define REPEAT_DECAY (TAPPING_RESOLUTION + 100)
 
 // Time to trigger layer
-#define LAYER_HOLD_TIME (TAPPING_RESOLUTION + 25)
+#define LAYER_HOLD_TIME (TAPPING_RESOLUTION + 50)
 
 // Time to trigger home row mods
 #define HRM_HOLD_TIME (TAPPING_RESOLUTION + 50)
@@ -66,6 +66,17 @@
             quick-tap-ms = <REPEAT_DECAY>;
             require-prior-idle-ms = <STREAK_DECAY>;
         };
+        hrmralt: homerow_mods_ralt {
+            compatible = "zmk,behavior-hold-tap";
+            flavor = HOLD_TYPE;
+
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            tapping-term-ms = <HRM_HOLD_TIME>;
+            quick-tap-ms = <REPEAT_DECAY>;
+            require-prior-idle-ms = <(TAPPING_RESOLUTION + 25)>;
+        };
 
         ss_cw: shift_capsword {
             compatible = "zmk,behavior-tap-dance";
@@ -81,38 +92,6 @@
             bindings = <&kp COLON>, <&kp SEMICOLON>;
         };
 
-        comma_less: comma_less {
-            compatible = "zmk,behavior-tap-dance";
-            label = "COMMA_LESS";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp LESS_THAN>;
-
-            tapping-term-ms = <TAP_DANCE_TIME>;
-        };
-
-        question: question {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            bindings = <&kp SLASH>, <&kp QUESTION>;
-
-            tapping-term-ms = <TAP_DANCE_TIME>;
-        };
-
-        dot_greater: dot_greater {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp GREATER_THAN>;
-
-            tapping-term-ms = <TAP_DANCE_TIME>;
-        };
-
-        quotes: quotes {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            bindings = <&kp SINGLE_QUOTE>, <&kp DOUBLE_QUOTES>;
-
-            tapping-term-ms = <TAP_DANCE_TIME>;
-        };
     };
 
     keymap {
@@ -121,9 +100,9 @@
         base {
             display-name = "Base";
             bindings = <
-                &kp Q            &kp W            &kp F                &kp P              &kp G   &kp J      &kp L               &kp U                 &kp Y             &quotes
-                &hrm LEFT_GUI A  &hrm LEFT_ALT R  &hrm LEFT_CONTROL S  &hrm LEFT_SHIFT T  &kp D   &kp H      &hrm RIGHT_SHIFT N  &hrm RIGHT_CONTROL E  &hrm RIGHT_ALT I  &hrm RIGHT_GUI O
-                &kp Z            &kp X            &kp C                &kp V              &kp B   &kp K      &kp M               &comma_less             &dot_greater        &question
+                &kp Q            &kp W            &kp F                &kp P              &kp G   &kp J      &kp L               &kp U                 &kp Y             &kp SINGLE_QUOTE
+                &hrm LEFT_GUI A  &hrm LEFT_ALT R  &hrm LEFT_CONTROL S  &hrm LEFT_SHIFT T  &kp D   &kp H      &hrm RIGHT_SHIFT N  &hrm RIGHT_CONTROL E  &hrmralt RIGHT_ALT I  &hrm RIGHT_GUI O
+                &kp Z            &kp X            &kp C                &kp V              &kp B   &kp K      &kp M               &kp COMMA            &kp DOT          &kp SLASH
                                                   &lt 5 ESC            &lt 3 SPACE        &ss_cw  &kp ENTER  &lt 1 BACKSPACE     &lt 2 DELETE
             >;
 
@@ -180,7 +159,7 @@
         utility {
             display-name = "Utility";
             bindings = <
-&bt BT_CLR_ALL     &none           &none                      &none              &none        &none        &none  &none  &none  &none
+&bt BT_CLR_ALL     &none           &none                      &none              &none        &none        &none  &none  &none   &bt BT_CLR_ALL
 &kp LS(LC(LG(E)))  &kp LG(RETURN)  &kp LS(LC(LG(BACKSPACE)))  &kp LS(LC(LG(H)))  &none        &none        &none  &none  &none  &none
 &none              &none           &none                      &none              &sys_reset   &sys_reset   &none  &none  &none  &none
                    &none           &none                      &none              &bootloader  &bootloader  &none  &none  &none
