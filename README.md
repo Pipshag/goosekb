@@ -13,6 +13,9 @@ All PCBs are reversible.
 Stagger and splay according to my hands, helped by [Ergopad](https://pashutk.com/ergopad/).
 Artwork generated with Midjourney AI. Not really gooses but goose-like? :D
 
+## Variations
+See branches for keyswitch variations (choc and mx).
+
 ## Images
 Final, completed, keyboard (left side).
 ![Goose completed, right side](img/goose_split_right.png)
