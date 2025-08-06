@@ -149,20 +149,20 @@
         flat {
             display-name = "Flat keyboard";
             bindings = <
-&kp Q  &kp W   &kp F    &kp P      &kp G      &kp J      &kp L          &kp U       &kp Y    &kp LEFT_ALT
-&kp A  &kp R   &kp S    &kp T      &kp D      &kp H      &kp N          &kp E       &kp I    &kp O
-&kp Z  &kp X   &kp C    &kp V      &kp B      &kp K      &kp M          &kp COMMA   &kp DOT  &kp FSLH
-       &trans  &kp ESC  &kp SPACE  &kp LSHFT  &kp ENTER  &kp BACKSPACE  &kp DELETE  &tog 4
+              &kp Q  &kp W   &kp F    &kp P      &kp G      &kp J      &kp L          &kp U       &kp Y    &kp LEFT_ALT
+              &kp A  &kp R   &kp S    &kp T      &kp D      &kp H      &kp N          &kp E       &kp I    &kp O
+              &kp Z  &kp X   &kp C    &kp V      &kp B      &kp K      &kp M          &kp COMMA   &kp DOT  &kp FSLH
+                            &kp ESC  &kp SPACE  &kp LSHFT  &kp ENTER  &kp BACKSPACE  &kp DELETE  &tog 4
             >;
         };
 
         utility {
             display-name = "Utility";
             bindings = <
-&bt BT_CLR_ALL     &none           &none                      &none              &none        &none        &none  &none  &none   &bt BT_CLR_ALL
-&kp LS(LC(LG(E)))  &kp LG(RETURN)  &kp LS(LC(LG(BACKSPACE)))  &kp LS(LC(LG(H)))  &none        &none        &none  &none  &none  &none
-&none              &none           &none                      &none              &sys_reset   &sys_reset   &none  &none  &none  &none
-                   &none           &none                      &none              &bootloader  &bootloader  &none  &none  &none
+              &bt BT_CLR_ALL     &none           &none                      &none              &none        &none        &none  &none  &none   &bt BT_CLR_ALL
+              &kp LS(LC(LG(E)))  &kp LG(RETURN)  &kp LS(LC(LG(BACKSPACE)))  &kp LS(LC(LG(H)))  &none        &none        &none  &none  &none  &none
+              &none              &none           &none                      &none              &sys_reset   &sys_reset   &none  &none  &none  &none
+                                &none           &none                      &none              &bootloader  &bootloader  &none  &none  &none
             >;
         };
 
